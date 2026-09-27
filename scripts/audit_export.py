@@ -13,6 +13,7 @@ PATTERNS = {
     'private key': r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',
     'credential-shaped string': r'\b(?:sk_live_|sk-ant-)[A-Za-z0-9_-]{12,}',
     'inherited approval': r'APPROVED_BY_OPERATOR_[0-9]|["\x27]approved_at["\x27]\s*:\s*["\x27]20[0-9]{2}',
+    'P4 / doc-service label': r'(?i)slop.?doc|exo.?doc|doc.?exo|docreview|remediat|exogenous|dimension.?profile',
 }
 SKIP = {'.git', '__pycache__', '.venv', 'venv', 'workspace', 'workspaces'}
 
@@ -38,6 +39,10 @@ def audit(root):
             continue
         for name, pattern in PATTERNS.items():
             for number, line in enumerate(text.splitlines(), 1):
+                # This one declaration necessarily contains its own search terms.
+                if (name == 'P4 / doc-service label' and rel == Path('scripts/audit_export.py')
+                        and line.lstrip().startswith("'P4 / doc-service label': r'(?i)")):
+                    continue
                 if re.search(pattern, line):
                     issues.append({'path': str(rel), 'line': number, 'issue': name})
         if path.suffix == '.py':

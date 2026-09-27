@@ -1,5 +1,5 @@
 {
-  "description": "Phase 2 source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
+  "description": "MIT release candidate source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
   "files": [
     {
       "path": ".gitattributes",
@@ -11,7 +11,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "2a7c793b48e7c31573eae9b7875798e85400e8a5db0bec010cad564884407459"
+      "sha256": "fa9b95bffd23b624fb2b86d42364c870c680b767691fd50cf37c3a5a1587bbc3"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -22,12 +22,12 @@
       "sha256": "128090b6cd9fd0d6586310937cb9486e37f9d5f55a9fbfadb4fa9d9a62c8979d"
     },
     {
-      "path": "LICENSE-STATUS.md",
-      "sha256": "1c2a2cccd8cf85b1ac4cc104e7570a87f397a6d0d59b8ed5eebc55b2755c3b18"
+      "path": "LICENSE",
+      "sha256": "5e30be860f9988a7ba703a6115038506820f62a1458ad5441b42a37de11a3ac9"
     },
     {
       "path": "README.md",
-      "sha256": "12371ef85ed353c8ab3cca4ad5c76364125dcf3ca9fbf4b53f089f9f72c75f5d"
+      "sha256": "f46eac280ca0eed8a72ff53a7323828f9fb5a179d8b9c64ad5153c4b0c849c07"
     },
     {
       "path": "SECURITY.md",
@@ -55,7 +55,7 @@
     },
     {
       "path": "docs/GENERALIZATION-PLAN.md",
-      "sha256": "eb5d011afca939eee10595aff21ac71a9d2424220b6a5b1fadeb44b9a4dc42b5"
+      "sha256": "887a4bd2807071088b8ea418ba23a59b2429d5fc1d4814986cbe48a7345e3dbe"
     },
     {
       "path": "docs/IMPLEMENTATION.md",
@@ -79,7 +79,7 @@
     },
     {
       "path": "docs/PUBLIC-REVIEW.md",
-      "sha256": "64efdf8ebbe9b9402f9b0b61465fd5a989e3984a74beeabbca9dea2f8b20dbc3"
+      "sha256": "a3e3ed8e234703cc3b24f71cfad8080013a8c7d39e0113aeb7c24eb0fb1e1df9"
     },
     {
       "path": "docs/TARGET-ADAPTERS.md",
@@ -519,11 +519,11 @@
     },
     {
       "path": "scripts/audit_export.py",
-      "sha256": "b4e0e29223fec3cd95e837108aca8948840113ca5a441c3e6496b038c6c82ee1"
+      "sha256": "6d75664aecf1360fee4837f6a01741969b0c74f0b4de1822a1be23e4e9b6e9b3"
     },
     {
       "path": "tests/test_extraction.py",
-      "sha256": "7463ee4c47f3fce9cfbf072bbad9f9a85b69469cbfa96b41571478f081afdda9"
+      "sha256": "05450402c43e4b8abbb23b2227707b1230b24f25fbbe6f8eb7e47ea58add68e0"
     },
     {
       "path": "tests/test_profiles.py",

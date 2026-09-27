@@ -19,3 +19,8 @@
 - Added bounded local-process and literal-loopback HTTP adapters for the JSON profile.
 - Added target identity envelopes, per-case timeouts, size limits and blocked outcomes.
 - Added custom input cases, toy targets, documentation and fault tests.
+
+## Public release preparation
+
+- Adopted the MIT license.
+- Expanded the export audit with an additional source-specific label family and a canary test.

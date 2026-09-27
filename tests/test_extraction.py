@@ -85,6 +85,9 @@ class ExtractionTests(unittest.TestCase):
             root = Path(directory)
             (root / 'bad.txt').write_text('/Use' + 'rs/private-person/notes')
             self.assertTrue(scanner.audit(root))
+            (root / 'label.txt').write_text('dimension' + '-profile')
+            self.assertTrue(any(issue['issue'] == 'P4 / doc-service label'
+                                for issue in scanner.audit(root)))
 
 if __name__ == '__main__':
     unittest.main()

@@ -63,4 +63,4 @@ The oracle and reference have different implementations but share historical aut
 - [Public review](docs/PUBLIC-REVIEW.md): scope of the owner's prepublication sweep.
 - [Contribution guide](CONTRIBUTING.md): how future profiles should be demonstrated.
 
-No original study outcomes, original study target implementation, release authority, credentials, or original Git history are included. Do not interpret a synthetic pass as qualification of an external system. Licensing and public-repository creation remain decisions for the owner; this folder has not been published.
+No original study outcomes, original study target implementation, release authority, credentials, or original Git history are included. Do not interpret a synthetic pass as qualification of an external system. The code is [MIT licensed](LICENSE). Public-repository creation and the owner's independent review remain pending; this folder has not been published.
