@@ -1,12 +1,12 @@
-# BlackboxHarness
+# Blacklight
 
 **Test the evaluator before trusting its verdict.**
 
-BlackboxHarness is an extracted Python prototype for testing an implementation against a separately specified contract. It combines an exact oracle, a separate reference implementation, known-broken targets, synthetic scenarios, and explicit review gates.
+Blacklight is an extracted Python prototype for testing an implementation against a separately specified contract. It combines an exact oracle, a separate reference implementation, known-broken targets, synthetic scenarios, and explicit review gates.
 
-**Current status: local Phase 2 prototype, not a public release.** The working name is temporary. Two profiles run through a common interface. The JSON profile can now probe a user-selected local executable or loopback HTTP service. The ordinal profile remains an offline demonstration. Enforced agent isolation and durable campaigns are later work.
+**Current status: Phase 2 preview.** Two profiles run through a common interface. The JSON profile can now probe a user-selected local executable or loopback HTTP service. The ordinal profile remains an offline demonstration. Enforced agent isolation and durable campaigns are later work.
 
-## Try the local prototype
+## Try Blacklight locally
 
 Python 3.11+; standard library only. No keys, provider accounts, packages, target server, or network connection are required. From this folder:
 
@@ -60,7 +60,7 @@ The oracle and reference have different implementations but share historical aut
 - [Generalization plan](docs/GENERALIZATION-PLAN.md): proposed extension points and acceptance gates.
 - [Extraction record](docs/EXTRACTION.md): what was retained, changed and excluded.
 - [Validation](docs/VALIDATION.md): results from this extracted copy only.
-- [Public review](docs/PUBLIC-REVIEW.md): scope of the owner's prepublication sweep.
+- [Public review](docs/PUBLIC-REVIEW.md): scope of the history and sensitive-content review.
 - [Contribution guide](CONTRIBUTING.md): how future profiles should be demonstrated.
 
-No original study outcomes, original study target implementation, release authority, credentials, or original Git history are included. Do not interpret a synthetic pass as qualification of an external system. The code is [MIT licensed](LICENSE). Public-repository creation and the owner's independent review remain pending; this folder has not been published.
+No original study outcomes, original study target implementation, release authority, credentials, or original Git history are included. Do not interpret a synthetic pass as qualification of an external system. The code is [MIT licensed](LICENSE). The [release review](docs/PUBLIC-REVIEW.md) describes the automated checks and the scope of independent review.

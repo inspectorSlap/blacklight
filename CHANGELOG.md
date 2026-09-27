@@ -24,3 +24,8 @@
 
 - Adopted the MIT license.
 - Expanded the export audit with an additional source-specific label family and a canary test.
+
+## Blacklight preview
+
+- Adopted the Blacklight project name in public documentation and license.
+- Added GitHub CI for the local tests and export scan.

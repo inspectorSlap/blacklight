@@ -1,9 +1,13 @@
 {
-  "description": "MIT release candidate source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
+  "description": "Blacklight Phase 2 preview source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
   "files": [
     {
       "path": ".gitattributes",
       "sha256": "236ff4b3d7ef7bebc9bcd7b958dd79b94f5fb9ce123bff104ff1eecffc392b63"
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "sha256": "ea986e5d326ec55a12d09f7e745af10fbeaf7461ad8375a5a8accfd77c92d098"
     },
     {
       "path": ".gitignore",
@@ -11,7 +15,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "fa9b95bffd23b624fb2b86d42364c870c680b767691fd50cf37c3a5a1587bbc3"
+      "sha256": "a600096fb18933def7995900d72e1254873df4711f004c4e97e407fd337f8787"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -23,11 +27,11 @@
     },
     {
       "path": "LICENSE",
-      "sha256": "5e30be860f9988a7ba703a6115038506820f62a1458ad5441b42a37de11a3ac9"
+      "sha256": "a2f54c8ba66ac13ebc85df23f68db5d1210662e8322c7e4701b5a004656a3e4d"
     },
     {
       "path": "README.md",
-      "sha256": "f46eac280ca0eed8a72ff53a7323828f9fb5a179d8b9c64ad5153c4b0c849c07"
+      "sha256": "f0efcc333ade140a2f49335b334b90cb563ce30cd9178e7e2f9db5013ff4c527"
     },
     {
       "path": "SECURITY.md",
@@ -55,7 +59,7 @@
     },
     {
       "path": "docs/GENERALIZATION-PLAN.md",
-      "sha256": "887a4bd2807071088b8ea418ba23a59b2429d5fc1d4814986cbe48a7345e3dbe"
+      "sha256": "d6b05237578f27c4a9b5078dc7c959b9074303f68daace72d3cb3474545196f8"
     },
     {
       "path": "docs/IMPLEMENTATION.md",
@@ -79,7 +83,7 @@
     },
     {
       "path": "docs/PUBLIC-REVIEW.md",
-      "sha256": "a3e3ed8e234703cc3b24f71cfad8080013a8c7d39e0113aeb7c24eb0fb1e1df9"
+      "sha256": "57d6b32035de04b77dca0cca41b5405cdaaf7489bdc44c73c1389ed5f4002fc0"
     },
     {
       "path": "docs/TARGET-ADAPTERS.md",
