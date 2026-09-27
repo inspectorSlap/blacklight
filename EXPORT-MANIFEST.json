@@ -1,5 +1,5 @@
 {
-  "description": "Phase 1 source and documentation; excludes this manifest and generated workspaces. Original source paths are omitted.",
+  "description": "Phase 2 source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
   "files": [
     {
       "path": ".gitattributes",
@@ -11,11 +11,11 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "fb62082aebbf395d178ef994231f7a2d9abd511f571d267ae76e66f4f74b5a1d"
+      "sha256": "2a7c793b48e7c31573eae9b7875798e85400e8a5db0bec010cad564884407459"
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "cd2a608fb6070a2757f03e85d3f14e29f98edc27db1e03aa19114c1a5746aae9"
+      "sha256": "c951dcd137aa323887d7d710b31fb4341eef3344e6d4257334df90386c445300"
     },
     {
       "path": "EXTRACTION-INVENTORY.json",
@@ -27,11 +27,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "41b105f501de06374d8345c452c039a0d97dbb928d58b324d2c156f16b538304"
+      "sha256": "12371ef85ed353c8ab3cca4ad5c76364125dcf3ca9fbf4b53f089f9f72c75f5d"
     },
     {
       "path": "SECURITY.md",
-      "sha256": "3232d85d91a12ee4586a2ea1442b3c88c48d11dd0ceb01f350dc1ed777ec0ff6"
+      "sha256": "11e1d1cba4796d6c2a9f2b04e7e0d59e7b1ed2b0ff84fd2280b6d141bb4478c6"
     },
     {
       "path": "agents/IMPLEMENTER.md",
@@ -47,19 +47,19 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "7e490119719817746ece696b8c6e84cd071249c19b99fd1f770547893e2d1b48"
+      "sha256": "8f1cb29f68ef4235d3281c108317017cdc2b9da7144206e33640a0606907d8ef"
     },
     {
       "path": "docs/EXTRACTION.md",
-      "sha256": "c17c1269f4b5cd22b5780fe483dc22859b42c9cde288edd61edc78bdca9a6153"
+      "sha256": "050085ad60c6d6816b57231746e983ff7cab5b6c31001fe9979350577a9c503a"
     },
     {
       "path": "docs/GENERALIZATION-PLAN.md",
-      "sha256": "98883c8a2af6bf362e3ef51235ad3dd031019a9dd3108f16bcb58e3887eeb787"
+      "sha256": "eb5d011afca939eee10595aff21ac71a9d2424220b6a5b1fadeb44b9a4dc42b5"
     },
     {
       "path": "docs/IMPLEMENTATION.md",
-      "sha256": "4d94dc534944ca43815b52bc9034c113c8ef4691550da60a8542d0e2117d8b94"
+      "sha256": "247ceda2c29cdae331a8e71e22a5c4f98392842b7c23eee444e6b1c54f93c44d"
     },
     {
       "path": "docs/JSON-TRANSFORM-PROFILE.md",
@@ -71,15 +71,23 @@
     },
     {
       "path": "docs/PROFILE-API.md",
-      "sha256": "3d83d4e075c3299a52985120955567762f0e92bb6977b54ebb539d82483de7b7"
+      "sha256": "489a31a4f2d786f0c9dea5ad68479284d752009c404d54886074b8ad764b7d82"
     },
     {
       "path": "docs/PROFILE.md",
       "sha256": "f4e586ad288e2f6feeca22af21190da6acfd9ee03013f80c30d7a918305a7bad"
     },
     {
+      "path": "docs/PUBLIC-REVIEW.md",
+      "sha256": "64efdf8ebbe9b9402f9b0b61465fd5a989e3984a74beeabbca9dea2f8b20dbc3"
+    },
+    {
+      "path": "docs/TARGET-ADAPTERS.md",
+      "sha256": "08a6d6f8b69ed2952ea7b1b3c51b2f928584a6bb77b55a22458725998dedf89a"
+    },
+    {
       "path": "docs/VALIDATION.md",
-      "sha256": "3927835232294b286a2cb2a4bcbd37441301fca548b057399037dc160c243f8d"
+      "sha256": "fc45e16797833a417d2d5a5f7ac50bf6b0e01f554c0ef05d3437fda78508fa26"
     },
     {
       "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.0.md",
@@ -108,6 +116,18 @@
     {
       "path": "docs/design-notes/OPERATIONAL-SAFETY-v1.5.4.md",
       "sha256": "7529fa4adc536abe0bf2a07ca87b18671ce82e116eee2e086dd0dc48b9a8e1b0"
+    },
+    {
+      "path": "examples/custom-cases.json",
+      "sha256": "74ea688ac276e19c65afeeae38597df416097951a0a4af8db30eadbbd074046f"
+    },
+    {
+      "path": "examples/json_transform_http.py",
+      "sha256": "d0f31ac44bc2bb6a58f435053300977222d0a0c449aed70fd5b5f5d67149feb3"
+    },
+    {
+      "path": "examples/json_transform_process.py",
+      "sha256": "16442076df7bb135b08bc78549db2c60495134e23f20f6a1704a1ead1a242a3a"
     },
     {
       "path": "fixtures/anchors/hand-anchors-v1.0.json",
@@ -159,7 +179,7 @@
     },
     {
       "path": "harness/cli.py",
-      "sha256": "5ce9053f0df733102b4100e1c9e3c20cf313a7397c578a41e1b78c8133e17535"
+      "sha256": "b62a33abbeea488de98384f12c0c5e8a1c40bf59b3ddc8ca33778bc5cd7a8ae7"
     },
     {
       "path": "harness/inflight.py",
@@ -195,7 +215,7 @@
     },
     {
       "path": "harness/profiles/base.py",
-      "sha256": "4657162dfc8f8546a88837a38e2a096acdcb6932a5e7e5102f91b8c21adb1497"
+      "sha256": "309f37ac5dfb80fe546ad6d022e3c9b09d8d13ef042a1ca7720c826259a33902"
     },
     {
       "path": "harness/profiles/json_transform/__init__.py",
@@ -211,7 +231,7 @@
     },
     {
       "path": "harness/profiles/json_transform/profile.py",
-      "sha256": "9075eb7689939b7b18dbce17d4774078cb03cbf958719c9ab3d1fe955ba3a3b6"
+      "sha256": "61a8cf37342b2c712f4a5e6572bd33e150e6b8949dfc805faa8e53684f73bed8"
     },
     {
       "path": "harness/profiles/json_transform/reference.py",
@@ -260,6 +280,14 @@
     {
       "path": "harness/simulation.py",
       "sha256": "9072638cbee0afb87a0fa0363969b6d0bbcbfd798d09ccbb3d51ebf502788033"
+    },
+    {
+      "path": "harness/target_adapters.py",
+      "sha256": "01f54d9b2d21788dbc6bb7d5bc2ee6c541e9583cb901d2e9102d31c016dcbfd7"
+    },
+    {
+      "path": "harness/target_probe.py",
+      "sha256": "bad03be97329c1abef73b0348f95267abc7f9dcd27b36a3855b0025d1057f2dc"
     },
     {
       "path": "harness/targets.py",
@@ -500,6 +528,10 @@
     {
       "path": "tests/test_profiles.py",
       "sha256": "a3140e47c3f16fd1fb8ec23bba698e70ba259e630f012050deaaa86dd2f2931b"
+    },
+    {
+      "path": "tests/test_target_probe.py",
+      "sha256": "db1c6bc8e0b66da79e4f7e3237b6c2c39af4d2ebecb38cc4ade886a372f0b57d"
     }
   ]
 }

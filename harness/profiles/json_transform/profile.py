@@ -74,3 +74,15 @@ class JsonTransformProfile:
                           {"anchor_cases": len(anchors), "oracle_failures": [r for r in anchors if r["checks"]],
                            "clean_cases": len(clean), "reference_failures": [r for r in clean if r["checks"]],
                            "mutants": sensitivity, "scope": "synthetic local profile only"})
+
+    def target_cases(self, custom_inputs=None):
+        if custom_inputs is None:
+            return list(ANCHORS)
+        if type(custom_inputs) is not list or not 1 <= len(custom_inputs) <= 32:
+            raise ValueError("custom cases must be a list of 1–32 input objects")
+        return [{"id": "custom-%03d" % (i + 1), "input": payload,
+                 "expected": oracle.transform(payload)}
+                for i, payload in enumerate(custom_inputs)]
+
+    def check_target_output(self, observed, expected):
+        return findings(observed, expected)

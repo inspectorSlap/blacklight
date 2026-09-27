@@ -18,7 +18,7 @@ Original target/vendored engine code, corpus and observed study outputs, result 
 
 Schema and environment-variable namespaces are neutral. Specimen IDs are synthetic. Source-specific research/organization/person labels and local paths are scrubbed. Generic profile labels C1–C5 replace the original hypothesis labels; calculations and thresholds remain profile-specific.
 
-The registry builder's inherited approval is reset to pending, including the generated status label. Local reports never grant external execution authority. The public CLI replaces the study launcher with offline build/demo/status commands; network and vendored-engine execution return not implemented. The active self-qualification gate treats blocked/unmappable results as blocking, alongside failures.
+The registry builder's inherited approval is reset to pending, including the generated status label. Local reports never grant external execution authority. At extraction, the CLI replaced the study launcher with offline build/demo/status commands. Phase 2 added a separate bounded target probe for local executables and literal-loopback HTTP; vendored-engine and campaign execution remain unimplemented. The active self-qualification gate treats blocked/unmappable results as blocking, alongside failures.
 
 Generated artifacts go into a separate workspace, not the source tree. All preserved incubator Python files fail immediately before imports/actions. The original files have not been edited, and their hashes are checked against the private extraction record.
 

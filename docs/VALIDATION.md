@@ -35,3 +35,7 @@ These are bounded synthetic checks of the bundled ordinal profile. They do not e
 ## Phase 1 validation
 
 The new JSON profile passed five hand-checked oracle/reference cases and detected five of five deliberate defects through their named checks. The ordinal profile was rerun through the shared CLI: 28/28 deliberate defects detected, 47 clean scenarios accepted, and 57 numeric anchors checked. The expanded suite passed 16 tests, and the heuristic export scan reported no issues. Both profiles remain offline.
+
+## Phase 2 validation
+
+The JSON profile passed all five bundled cases and two custom input cases against the bundled executable, plus two custom cases against the bundled loopback HTTP service. The expanded suite passed 23 tests, including process timeout, invalid JSON, oversized output, nonzero exit, identity mismatch, program digest change, loopback URL restrictions, unavailable HTTP service, wrong target output and sanitized reports. The actual HTTP smoke test used a temporary loopback server; unit tests mock HTTP to run without network privileges. These tests do not establish safe execution of untrusted programs or durability of campaigns.

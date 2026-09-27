@@ -49,3 +49,7 @@ python3 scripts/audit_export.py
 Generated workspaces are ignored by the proposed Git configuration. Inspect candidate files before creating a public repository. No automatic test can certify absence of all sensitive content; the extraction record describes both the automated scan and the material manually excluded.
 
 For the other profile, use `--profile json-transform-v1` with `build` and `selfqual`. A workspace refuses a mismatched profile. See [the profile extension guide](PROFILE-API.md).
+
+## Probe your own target (Phase 2)
+
+For the JSON transformation profile, use `probe` with either `--program` or `--url` and a matching `--target-id`. It creates a fresh workspace and writes `results/target-probe.json`. Exit 0 means all selected cases pass; 1 means a completed response failed a criterion; 2 means the run was blocked. See [target adapters](TARGET-ADAPTERS.md) for the request/response contract, examples, bounds and security limits. The ordinal profile does not yet have a target adapter.

@@ -33,8 +33,12 @@ These assets have study-era coupling to contract files, version IDs and earlier 
 
 ## Planned boundaries
 
-A future profile supplies scenario generation, anchors, oracle/reference behavior, mutations, schema normalization, decision checks and acceptance rules. A future target adapter supplies execution and identity. Campaign machinery supplies bounded dispatch, evidence retention, resumption and accounting. Information isolation remains an explicit external boundary. See [the plan](GENERALIZATION-PLAN.md) for deliverables and acceptance criteria.
+A future profile supplies scenario generation, anchors, oracle/reference behavior, mutations, schema normalization, decision checks and acceptance rules. The Phase 2 adapters supply bounded execution and declared identity for the JSON profile. Campaign machinery supplies bounded dispatch, evidence retention, resumption and accounting. Information isolation remains an explicit external boundary. See [the plan](GENERALIZATION-PLAN.md) for deliverables and acceptance criteria.
 
 ## Phase 1 profile boundary
 
 `harness/profiles/base.py` defines the local profile interface; `harness/profiles/ordinal.py` adapts the extracted harness and `harness/profiles/json_transform/` supplies a second, exact contract. `harness/cli.py` owns selection, workspace identity and report envelopes. The profile modules own their criteria, fixtures and evidence. See [PROFILE-API.md](PROFILE-API.md).
+
+## Phase 2 target boundary
+
+`harness/target_adapters.py` implements bounded process and literal-loopback HTTP transports. `harness/target_probe.py` applies a target-capable profile's cases and checks, returning PASS, FAIL or BLOCKED without fallback. `examples/` contains deliberately small toy targets and custom inputs. The [adapter guide](TARGET-ADAPTERS.md) defines the wire protocol and limits.

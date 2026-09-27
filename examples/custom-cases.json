@@ -1,0 +1,4 @@
+[
+  {"records": [{"id": "r", "value": 5}, {"id": "s", "value": 2}], "minimum": 3},
+  {"records": [{"id": "a", "value": 0}, {"id": "b", "value": 0}], "minimum": 0}
+]

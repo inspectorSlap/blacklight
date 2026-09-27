@@ -1,6 +1,6 @@
 # Profile extension guide
 
-Phase 1 provides a small Python interface for local profiles. A profile owns its input contract, independent expected behavior, synthetic fixtures, deliberate defects and checks. The common CLI owns profile selection, fresh workspaces and a consistent `results/profile-evaluation.json` envelope. The interface does not yet load arbitrary installed plugins or run external targets.
+Phase 1 provides a small Python interface for local profiles. A profile owns its input contract, independent expected behavior, synthetic fixtures, deliberate defects and checks. The common CLI owns profile selection, fresh workspaces and a consistent `results/profile-evaluation.json` envelope. The interface does not yet load arbitrary installed plugins. A profile may opt into bounded target probes by implementing `TargetProfile`.
 
 ## Interface
 
@@ -22,6 +22,10 @@ The caller selects a profile with `--profile`. A workspace records its profile I
 
 Each profile decides what its criteria mean. `json-transform-v1` checks selection at an inclusive boundary, original order, total, count and output shape. The ordinal profile owns its own statistical decisions and fixed thresholds. There is no shared global threshold file, because applying one numeric rule to every domain would be unsound. A contributor who needs different inputs or values can add a profile module and tests today; configurable profile discovery and third-party loading are future work.
 
+## Target-capable profiles
+
+`TargetProfile` adds `target_cases(custom_inputs)` and `check_target_output(observed, expected)`. The first returns 1–32 cases with `id`, `input` and independently derived `expected` fields. The second returns named failed criteria. The shared `probe` runner calls the selected process or loopback adapter and never substitutes a reference result after a transport failure. The JSON profile demonstrates this extension. The ordinal profile does not yet implement it.
+
 ## Remaining boundary
 
-Target adapters, durable campaigns, agent isolation and qualification policy are later phases. The local reference is used only for synthetic specificity checks. A new profile cannot claim that passing this demo validates a production system.
+Durable campaigns, broader adapters, agent isolation and qualification policy are later phases. A new profile cannot claim that passing a bounded probe validates a production system.

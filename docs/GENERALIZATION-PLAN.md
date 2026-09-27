@@ -18,9 +18,9 @@ Deliver a versioned `ordinal-v1` profile plus a deliberately different small pro
 
 **Acceptance:** both profiles run through the same harness; different input shapes and criteria work without editing core orchestration; each has clean cases, targeted mutations, anchors or explicit oracle limits; registry gaps and unsupported claims remain visible. Do not call numeric thresholds universally valid.
 
-## Phase 2 — real target adapters
+## Phase 2 — real target adapters (bounded local prototype implemented)
 
-Add explicit local-process JSON and loopback HTTP adapters, with a new target identity contract, bounded payloads/timeouts and sanitized errors. No provider-specific LLM SDK is required for the first release. Operators should be able to test their own implementation without importing it into the harness process.
+Local-process JSON and literal-loopback HTTP adapters now use a target identity envelope, bounded payloads/timeouts and sanitized blocked codes. No provider-specific LLM SDK is required. The JSON profile can test a user-provided executable or local service without importing it into the harness process; the ordinal target boundary remains unsupported.
 
 **Acceptance:** a user-provided executable and a toy HTTP service can be tested; timeouts, invalid JSON, identity changes and unavailable endpoints become explicit blocked results; transport logs omit credentials; no implicit fallback to the reference occurs.
 
@@ -50,4 +50,4 @@ A useful profile contribution must include a minimal synthetic example, supporte
 
 Publish once a fresh clone can run the advertised demo, the supported profile/adapters are accurately documented, the license is selected, export review is complete and CI passes. A useful early release may support only one substantive profile while honestly exposing the intended extension design; it must not advertise planned adapters or universal criteria as implemented.
 
-Use completed acceptance gates to track progress. No calendar estimate is required to decide the next step. The `ordinal-v1` and `json-transform-v1` modules now exercise the shared local interface. Remaining release work includes profile discovery beyond the built-in registry, independent review of the new API, broader tests, license selection and public export review. Phase 2 begins with a bounded local-process adapter.
+Use completed acceptance gates to track progress. No calendar estimate is required to decide the next step. The `ordinal-v1` and `json-transform-v1` modules now exercise the shared local interface. Remaining release work includes profile discovery beyond the built-in registry, independent review of the new API, broader tests, license selection and public export review. Phase 2 now includes both planned local transports. Public release remains gated on the owner's independent PII review, licensing, and review of the complete new Git history.

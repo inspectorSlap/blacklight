@@ -27,3 +27,13 @@ class Profile(Protocol):
     def evaluate(self, workspace: Path) -> Evaluation:
         """Evaluate the profile without external target access."""
         ...
+
+
+class TargetProfile(Profile, Protocol):
+    def target_cases(self, custom_inputs: list[Any] | None = None) -> list[dict[str, Any]]:
+        """Return bounded cases with id, input and expected fields."""
+        ...
+
+    def check_target_output(self, observed: Any, expected: Any) -> list[str]:
+        """Return named failed criteria; never substitute a reference result."""
+        ...
