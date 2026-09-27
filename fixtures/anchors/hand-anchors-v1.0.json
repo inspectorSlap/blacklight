@@ -1,0 +1,623 @@
+{
+  "anchor_file_version": "1.0",
+  "status": "EXTRACTED_PENDING_REVIEW",
+  "source_document": "docs/ANCHORS.md",
+  "provenance": {
+    "authored_by": "Original implementation agent; identity omitted in public extraction",
+    "authoring_method": "manual symbolic derivation in the source document, transcribed by hand",
+    "generated_by_oracle": false,
+    "generated_by_reference_target": false,
+    "generated_by_engine": false,
+    "derived_from_target_output": false,
+    "review_status": "EXTRACTED_PENDING_REVIEW"
+  },
+  "numerical_representation": {
+    "exact_form": "rational string 'numerator/denominator'",
+    "exact_comparison_tolerance": 0,
+    "float_comparison_tolerance": 1e-12,
+    "float_tolerance_rationale": "absorbs IEEE-754 JSON round-tripping only; no anchor requires a looser tolerance"
+  },
+  "numeric_anchors": [
+    {
+      "id": "A01.ties.ps",
+      "derivation": "A01",
+      "statement": "identical point masses at the same category give PS = 1/2",
+      "inputs": {
+        "kind": "point_mass_pair",
+        "x_category": 5,
+        "y_category": 5
+      },
+      "expected": {
+        "W": "0/1",
+        "L": "0/1",
+        "T": "1/1",
+        "PS": "1/2",
+        "cliff_delta": "0/1"
+      },
+      "decimal": {
+        "PS": 0.5,
+        "cliff_delta": 0.0
+      },
+      "category_independent": true,
+      "also_verified_at_categories": [
+        1,
+        10
+      ]
+    },
+    {
+      "id": "A04.cliff.at_c1_boundary",
+      "derivation": "A04",
+      "statement": "delta = 2 PS - 1; at the C1 boundary PS = 7/10 the Cliff image is 2/5",
+      "inputs": {
+        "kind": "transform",
+        "PS": "7/10"
+      },
+      "expected": {
+        "cliff_delta": "2/5"
+      },
+      "decimal": {
+        "cliff_delta": 0.4
+      }
+    },
+    {
+      "id": "A04.cliff.at_c2_boundary",
+      "derivation": "A04",
+      "statement": "I_delta = 2 I_P; at the C2 boundary I_P = 3/20 the Cliff image is 3/10",
+      "inputs": {
+        "kind": "transform_interaction",
+        "I_P": "3/20"
+      },
+      "expected": {
+        "I_delta": "3/10"
+      },
+      "decimal": {
+        "I_delta": 0.3
+      }
+    },
+    {
+      "id": "A04.cliff.equivalence_region",
+      "derivation": "A04",
+      "statement": "the PS equivalence region [45/100, 55/100] maps to Cliff [-1/10, +1/10]",
+      "inputs": {
+        "kind": "transform_region",
+        "lo": "9/20",
+        "hi": "11/20"
+      },
+      "expected": {
+        "cliff_lo": "-1/10",
+        "cliff_hi": "1/10"
+      },
+      "decimal": {
+        "cliff_lo": -0.1,
+        "cliff_hi": 0.1
+      }
+    },
+    {
+      "id": "A05.separation",
+      "derivation": "A05",
+      "statement": "X point mass at 10, Y point mass at 1: complete separation",
+      "inputs": {
+        "kind": "point_mass_pair",
+        "x_category": 10,
+        "y_category": 1
+      },
+      "expected": {
+        "W": "1/1",
+        "L": "0/1",
+        "T": "0/1",
+        "PS": "1/1",
+        "cliff_delta": "1/1"
+      },
+      "decimal": {
+        "PS": 1.0,
+        "cliff_delta": 1.0
+      }
+    },
+    {
+      "id": "A05.reverse_separation",
+      "derivation": "A05",
+      "statement": "X point mass at 1, Y point mass at 10: complete reverse separation",
+      "inputs": {
+        "kind": "point_mass_pair",
+        "x_category": 1,
+        "y_category": 10
+      },
+      "expected": {
+        "W": "0/1",
+        "L": "1/1",
+        "T": "0/1",
+        "PS": "0/1",
+        "cliff_delta": "-1/1"
+      },
+      "decimal": {
+        "PS": 0.0,
+        "cliff_delta": -1.0
+      }
+    },
+    {
+      "id": "A05.adjacent_separation",
+      "derivation": "A05",
+      "statement": "separation does not require maximal category distance: X at 3, Y at 2 gives PS = 1",
+      "inputs": {
+        "kind": "point_mass_pair",
+        "x_category": 3,
+        "y_category": 2
+      },
+      "expected": {
+        "W": "1/1",
+        "L": "0/1",
+        "T": "0/1",
+        "PS": "1/1",
+        "cliff_delta": "1/1"
+      },
+      "decimal": {
+        "PS": 1.0
+      }
+    },
+    {
+      "id": "A07.collision.balanced_two_category",
+      "derivation": "A07",
+      "statement": "n=4 counts (2,2): registered unbiased collision is 1/3, not the naive 1/2",
+      "inputs": {
+        "kind": "counts",
+        "counts": [
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": {
+        "C_hat": "1/3"
+      },
+      "prohibited_alternative": {
+        "naive_squared_proportion": "1/2"
+      },
+      "decimal": {
+        "C_hat": 0.3333333333333333,
+        "naive": 0.5
+      }
+    },
+    {
+      "id": "A09.collision.point_mass",
+      "derivation": "A09",
+      "statement": "a cell whose n>1 calls all share one category has C_hat = 1",
+      "inputs": {
+        "kind": "counts",
+        "counts": [
+          0,
+          0,
+          0,
+          0,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": {
+        "C_hat": "1/1"
+      },
+      "decimal": {
+        "C_hat": 1.0
+      }
+    },
+    {
+      "id": "A08.capacity.floor_zero",
+      "derivation": "A08",
+      "statement": "K_A = 1 - p_floor/2; at p_floor = 0, K_A = 1",
+      "inputs": {
+        "kind": "capacity",
+        "p_floor_A0": "0/1"
+      },
+      "expected": {
+        "K_A": "1/1",
+        "K_A_cliff": "1/1"
+      },
+      "decimal": {
+        "K_A": 1.0
+      }
+    },
+    {
+      "id": "A08.capacity.floor_two_fifths",
+      "derivation": "A08",
+      "statement": "at p_floor = 2/5, K_A = 4/5; the no-half-credit error would give 3/5",
+      "inputs": {
+        "kind": "capacity",
+        "p_floor_A0": "2/5"
+      },
+      "expected": {
+        "K_A": "4/5",
+        "K_A_cliff": "3/5"
+      },
+      "prohibited_alternative": {
+        "no_half_credit": "3/5"
+      },
+      "decimal": {
+        "K_A": 0.8,
+        "no_half_credit": 0.6
+      }
+    },
+    {
+      "id": "A08.capacity.floor_one",
+      "derivation": "A08",
+      "statement": "at p_floor = 1, K_A = 1/2",
+      "inputs": {
+        "kind": "capacity",
+        "p_floor_A0": "1/1"
+      },
+      "expected": {
+        "K_A": "1/2",
+        "K_A_cliff": "0/1"
+      },
+      "decimal": {
+        "K_A": 0.5
+      }
+    },
+    {
+      "id": "A10.section_5_3",
+      "derivation": "A10",
+      "statement": "all A0 mass at category 2 and all AB mass at category 1 give p_floor = 0, K_A = 1, PA = 1",
+      "inputs": {
+        "kind": "cell_pair",
+        "A0_counts": [
+          0,
+          9,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "AB_counts": [
+          9,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": {
+        "p_floor_A0": "0/1",
+        "K_A": "1/1",
+        "PA": "1/1",
+        "cliff_delta_A": "1/1"
+      },
+      "decimal": {
+        "K_A": 1.0,
+        "PA": 1.0
+      }
+    },
+    {
+      "id": "A11.G.exactly_zero",
+      "derivation": "A11",
+      "statement": "G = K_A - (P0 - 0.15); at p_floor = 0.4 and P0 = 0.95, G = 0 exactly",
+      "inputs": {
+        "kind": "range_surplus",
+        "p_floor_A0": "2/5",
+        "P0": "19/20",
+        "M_I": "3/20"
+      },
+      "expected": {
+        "K_A": "4/5",
+        "G": "0/1"
+      },
+      "decimal": {
+        "G": 0.0
+      },
+      "disposition_note": "a point estimate of exactly 0 can never be RANGE_ADEQUATE; the registered rule is on the interval"
+    },
+    {
+      "id": "A11.G.positive",
+      "derivation": "A11",
+      "statement": "at p_floor = 0 and P0 = 1, G = +0.15",
+      "inputs": {
+        "kind": "range_surplus",
+        "p_floor_A0": "0/1",
+        "P0": "1/1",
+        "M_I": "3/20"
+      },
+      "expected": {
+        "K_A": "1/1",
+        "G": "3/20"
+      },
+      "decimal": {
+        "G": 0.15
+      }
+    },
+    {
+      "id": "A11.G.negative",
+      "derivation": "A11",
+      "statement": "at p_floor = 1 and P0 = 0.95, G = -0.30",
+      "inputs": {
+        "kind": "range_surplus",
+        "p_floor_A0": "1/1",
+        "P0": "19/20",
+        "M_I": "3/20"
+      },
+      "expected": {
+        "K_A": "1/2",
+        "G": "-3/10"
+      },
+      "decimal": {
+        "G": -0.3
+      }
+    },
+    {
+      "id": "A12.KQ.degenerate_baselines",
+      "derivation": "A12",
+      "statement": "C_00 = C_0B = 1 gives K_Q = 0 and G_Q = -0.10 (CONCENTRATION_RANGE_LIMITED)",
+      "inputs": {
+        "kind": "concentration_capacity",
+        "C_00": "1/1",
+        "C_0B": "1/1",
+        "M_C": "1/10"
+      },
+      "expected": {
+        "K_Q": "0/1",
+        "G_Q": "-1/10"
+      },
+      "decimal": {
+        "K_Q": 0.0,
+        "G_Q": -0.1
+      }
+    },
+    {
+      "id": "A12.KQ.dispersed_baselines",
+      "derivation": "A12",
+      "statement": "C_00 = C_0B = 0.2 gives K_Q = 0.8 and G_Q = +0.70",
+      "inputs": {
+        "kind": "concentration_capacity",
+        "C_00": "1/5",
+        "C_0B": "1/5",
+        "M_C": "1/10"
+      },
+      "expected": {
+        "K_Q": "4/5",
+        "G_Q": "7/10"
+      },
+      "decimal": {
+        "K_Q": 0.8,
+        "G_Q": 0.7
+      }
+    },
+    {
+      "id": "A12.KQ.mixed_baselines",
+      "derivation": "A12",
+      "statement": "C_00 = 1.0 and C_0B = 0.6 give K_Q = 0.2 and G_Q = +0.10",
+      "inputs": {
+        "kind": "concentration_capacity",
+        "C_00": "1/1",
+        "C_0B": "3/5",
+        "M_C": "1/10"
+      },
+      "expected": {
+        "K_Q": "1/5",
+        "G_Q": "1/10"
+      },
+      "decimal": {
+        "K_Q": 0.2,
+        "G_Q": 0.1
+      }
+    },
+    {
+      "id": "A13.equal_weight_vs_pooling",
+      "derivation": "A13",
+      "statement": "two specimens with PS 1 and 0 average to 1/2 under equal weight; call pooling gives 5/6",
+      "inputs": {
+        "kind": "two_specimen_aggregate",
+        "specimen_1": {
+          "00_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20
+          ],
+          "0B_counts": [
+            20,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "specimen_2": {
+          "00_counts": [
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "0B_counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ]
+        }
+      },
+      "expected": {
+        "PS_specimen_1": "1/1",
+        "PS_specimen_2": "0/1",
+        "equal_weight_mean": "1/2"
+      },
+      "prohibited_alternative": {
+        "call_pooled_PS": "5/6"
+      },
+      "decimal": {
+        "equal_weight_mean": 0.5,
+        "call_pooled": 0.8333333333333334
+      }
+    },
+    {
+      "id": "A14.worked_wlt",
+      "derivation": "A14",
+      "statement": "worked non-degenerate case: 00 = {8,8,9}, 0B = {7,8,10}",
+      "inputs": {
+        "kind": "cell_pair",
+        "X_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0
+        ],
+        "Y_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "expected": {
+        "W": "4/9",
+        "L": "1/3",
+        "T": "2/9",
+        "PS": "5/9",
+        "cliff_delta": "1/9"
+      },
+      "prohibited_alternative": {
+        "ties_discarded": "4/7",
+        "ties_as_wins": "2/3"
+      },
+      "decimal": {
+        "PS": 0.5555555555555556,
+        "ties_discarded": 0.5714285714285714,
+        "ties_as_wins": 0.6666666666666666
+      }
+    },
+    {
+      "id": "A14.collision_2_1",
+      "derivation": "A14",
+      "statement": "counts (2,1) with n=3 give C_hat = 1/3",
+      "inputs": {
+        "kind": "counts",
+        "counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0
+        ]
+      },
+      "expected": {
+        "C_hat": "1/3"
+      },
+      "decimal": {
+        "C_hat": 0.3333333333333333
+      }
+    }
+  ],
+  "structural_anchors": [
+    {
+      "id": "A02.complement_identity",
+      "derivation": "A02",
+      "predicate": "for every ordered cell pair in every panel scenario, PS(X,Y) + PS(Y,X) == 1 exactly"
+    },
+    {
+      "id": "A03.wlt_partition",
+      "derivation": "A03",
+      "predicate": "for every cell pair, W + L + T == 1 exactly and 2*PS - 1 == W - L exactly"
+    },
+    {
+      "id": "A06.collision_formula",
+      "derivation": "A06",
+      "predicate": "C_hat == sum_k n_k(n_k-1) / (n(n-1)) for every cell with n > 1"
+    },
+    {
+      "id": "A15.monotone_relabel_invariance",
+      "derivation": "A15",
+      "predicate": "PS, W, L, T are invariant under every strictly increasing category relabeling; C_hat is invariant under every bijective relabeling including order-destroying ones; PS is NOT required to be invariant under an order-destroying permutation and a target for which it is has lost the ordinal structure"
+    },
+    {
+      "id": "A16.first_valid_selection",
+      "derivation": "A16",
+      "predicate": "for each (light, specimen, cell, replicate_index), the selected response is the valid attempt with the smallest attempt_index, regardless of score favorability"
+    },
+    {
+      "id": "A16.attempt_order_invariance",
+      "derivation": "A16",
+      "predicate": "permuting the rows of the attempts array while preserving every record's fields produces an identical scientific result"
+    },
+    {
+      "id": "A17.no_zero_width_interval",
+      "derivation": "A17",
+      "predicate": "every decision-bearing interval at finite N has width >= 1e-9; a zero-width interval routes to INFERENCE_ENGINE_FAILURE and never to SUPPORTED"
+    },
+    {
+      "id": "A18.guards_withhold_only",
+      "derivation": "A18",
+      "predicate": "the set of SUPPORTED verdicts with guards enforced is a subset of the set with the guard clause deleted, and likewise for EQUIVALENTLY_ABSENT; no guard failure may produce support or equivalence"
+    },
+    {
+      "id": "A19.attenuation_chain",
+      "derivation": "A19",
+      "predicate": "A_l = C1_l AND RANGE_l AND VALIDITY_l AND C2_l; validity failure, range non-clearance, or C1 non-support each independently block C2 support and equivalence for any numeric values"
+    },
+    {
+      "id": "A19.c4_noninterference",
+      "derivation": "A19",
+      "predicate": "changing only concentration structure while holding every cross-tabulation (P0, PA, I_P, p_floor_A0, G) exactly fixed must leave C1, range and C2 bit-identical; C4 is reported ineligible rather than absent when A_l is not supported"
+    },
+    {
+      "id": "A20.a_all_conjunction",
+      "derivation": "A20",
+      "predicate": "A_all is true only when all three A_l are true; a mixed vector yields A_all false, all three per-light dispositions are still reported, and no unregistered pooled verdict replaces the vector"
+    }
+  ]
+}

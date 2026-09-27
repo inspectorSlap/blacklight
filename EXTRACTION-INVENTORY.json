@@ -1,0 +1,470 @@
+{
+  "status": "local extraction, not publication approval",
+  "files": [
+    {
+      "path": "incubator/harness/__init__.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/adapter.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/batching.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/build_archives.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/build_fixtures.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/build_registry.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/campaign.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/checks/__init__.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/checks/anchor_checks.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/checks/archive_checks.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/checks/checks.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/checks/rules.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/cli.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/dryrun.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/freeze.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/inflight.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/mutants/__init__.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/mutants/mutants.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/oc.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/oracle/__init__.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/oracle/core.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/oracle/population.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/oracle/sample.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/__init__.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/campaign.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/canonical.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/engine_bridge.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/events.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/family.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/grid.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/runner.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/selfcheck.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/statuses.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/ordered/synthetic.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/reference/__init__.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/reference/archive.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/reference/interval.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/reference/sound_reference.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/roster.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/runner.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/selfqual.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/sequential.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/serial.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/simulation.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/targets.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/harness/transport.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "harness/__init__.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/adapter.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/batching.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/build_archives.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/build_fixtures.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/build_registry.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/checks/__init__.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/checks/anchor_checks.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/checks/archive_checks.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/checks/checks.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/checks/rules.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/inflight.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/mutants/__init__.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/mutants/mutants.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/oracle/__init__.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/oracle/core.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/oracle/population.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/oracle/sample.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/reference/__init__.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/reference/archive.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/reference/interval.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/reference/sound_reference.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/roster.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/runner.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/selfqual.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/sequential.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/serial.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/simulation.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "harness/targets.py",
+      "origin": "independent harness source",
+      "handling": "adapted"
+    },
+    {
+      "path": "incubator/operations/proxy.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/operations/supervisor.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/operations/attestation.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/operations/continuation.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/operations/launch_safety.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/operations/snapshot_release.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/operations/proxy_qualify.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "incubator/operations/supervisor_qualify.py",
+      "origin": "independent harness source",
+      "handling": "sanitized design archive; execution disabled"
+    },
+    {
+      "path": "fixtures/anchors/hand-anchors-v1.0.json",
+      "origin": "independent harness source",
+      "handling": "synthetic mathematical anchors, sanitized; review pending"
+    },
+    {
+      "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.0.md",
+      "origin": "independent harness source",
+      "handling": "sanitized historical design note; not release evidence"
+    },
+    {
+      "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.1.md",
+      "origin": "independent harness source",
+      "handling": "sanitized historical design note; not release evidence"
+    },
+    {
+      "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.2.md",
+      "origin": "independent harness source",
+      "handling": "sanitized historical design note; not release evidence"
+    },
+    {
+      "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.3.md",
+      "origin": "independent harness source",
+      "handling": "sanitized historical design note; not release evidence"
+    },
+    {
+      "path": "docs/design-notes/OPERATIONAL-SAFETY-v1.5.4.md",
+      "origin": "independent harness source",
+      "handling": "sanitized historical design note; not release evidence"
+    },
+    {
+      "path": "docs/design-notes/OPERATIONAL-DURABILITY-v1.5.6.md",
+      "origin": "independent harness source",
+      "handling": "sanitized historical design note; not release evidence"
+    },
+    {
+      "path": "docs/design-notes/HONEST-STUB-CONTRACT-v0.1.md",
+      "origin": "independent harness source",
+      "handling": "sanitized historical design note; not release evidence"
+    }
+  ],
+  "excluded": [
+    "target engine and vendored implementations",
+    "observed research data and transcripts",
+    "results and operational evidence",
+    "operator approvals and execution authorities",
+    "credentials, environment files, tokens and session state",
+    "git history, agent settings and session logs",
+    "private preregistration and research claims",
+    "one-off release/approval record generators"
+  ]
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+*.token
+*.key
+.venv/
+venv/
+workspace/
+workspaces/
+results/
+build/
+dist/
+*.egg-info/

@@ -1,0 +1,1 @@
+"""Registered defective-target panel."""
