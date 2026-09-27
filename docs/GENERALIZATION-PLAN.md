@@ -6,13 +6,13 @@ A contract-driven black-box evaluation framework: define what should hold, build
 
 The intended extension surface should support different input schemas, values, scales and decision rules. The framework should not pretend that every domain admits the same oracle or statistical test. Domain plugins must state their assumptions, limitations and unsupported cases.
 
-## Phase 0 — extracted workspace (this delivery)
+## Phase 0 — extracted workspace (complete)
 
 Retain reusable code and mathematical documentation; replace private identifiers; remove study data, historical approvals and target dependencies; provide a local synthetic demonstration; inventory disabled assets. Record fresh validation and a public-readiness boundary. No claim of universal support.
 
-## Phase 1 — profile boundary, first credible release
+## Phase 1 — profile boundary (local prototype implemented; release work remains)
 
-Extract a small documented profile protocol from the active ordinal implementation. Start with methods for scenario generation, schema normalization, expected quantities, decision checks, mutations and report rendering. Keep the oracle and reference independently implemented even when they share declarative configuration. A profile's author must not use the target's implementation as the answer key.
+Extract a small documented profile protocol from the active ordinal implementation. Let each profile own scenario generation, schema normalization, expected quantities, decision checks and mutations while the common command layer owns workspaces and report envelopes. Keep the oracle and reference independently implemented even when they share declarative configuration. A profile's author must not use the target's implementation as the answer key.
 
 Deliver a versioned `ordinal-v1` profile plus a deliberately different small profile, such as deterministic JSON transformation with exact invariants. The second profile should prove the extension boundary without requiring LLM calls or uncertain statistical claims.
 
@@ -50,4 +50,4 @@ A useful profile contribution must include a minimal synthetic example, supporte
 
 Publish once a fresh clone can run the advertised demo, the supported profile/adapters are accurately documented, the license is selected, export review is complete and CI passes. A useful early release may support only one substantive profile while honestly exposing the intended extension design; it must not advertise planned adapters or universal criteria as implemented.
 
-Use completed acceptance gates to track progress. No calendar estimate is required to decide the next step. Start by reviewing this extraction and choosing the first public profile/API boundary.
+Use completed acceptance gates to track progress. No calendar estimate is required to decide the next step. The `ordinal-v1` and `json-transform-v1` modules now exercise the shared local interface. Remaining release work includes profile discovery beyond the built-in registry, independent review of the new API, broader tests, license selection and public export review. Phase 2 begins with a bounded local-process adapter.

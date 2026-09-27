@@ -1,6 +1,6 @@
 # Bundled ordinal profile: current scope
 
-The first extraction preserves a concrete statistical test profile so there is runnable substance to inspect. Changing its labels does not make its mathematics universal.
+The `ordinal-v1` adapter preserves a concrete statistical test profile so there is runnable substance to inspect. Changing its labels does not make its mathematics universal.
 
 ## 1. Inputs
 

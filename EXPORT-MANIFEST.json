@@ -1,5 +1,5 @@
 {
-  "description": "Final extracted and newly authored files; excludes this manifest itself. No original source paths are included.",
+  "description": "Phase 1 source and documentation; excludes this manifest and generated workspaces. Original source paths are omitted.",
   "files": [
     {
       "path": ".gitattributes",
@@ -11,7 +11,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "0f0cd575b5185b5134801c2cad8e6857d9b48561e92eabef2e4595a8a2245a17"
+      "sha256": "fb62082aebbf395d178ef994231f7a2d9abd511f571d267ae76e66f4f74b5a1d"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -27,7 +27,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a28a9e3f5ad920cb64411a76b1ec77a718825b442993fa2acd73a618dbe80255"
+      "sha256": "41b105f501de06374d8345c452c039a0d97dbb928d58b324d2c156f16b538304"
     },
     {
       "path": "SECURITY.md",
@@ -47,7 +47,7 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "193588d781d278427fd07302a5391b1c4c69747628895de574c620926778dc52"
+      "sha256": "7e490119719817746ece696b8c6e84cd071249c19b99fd1f770547893e2d1b48"
     },
     {
       "path": "docs/EXTRACTION.md",
@@ -55,23 +55,31 @@
     },
     {
       "path": "docs/GENERALIZATION-PLAN.md",
-      "sha256": "65cb27ba135b8b1d8c290c7d7e60f2a224d01d06b6cedd9b5f3ce1ea000e4097"
+      "sha256": "98883c8a2af6bf362e3ef51235ad3dd031019a9dd3108f16bcb58e3887eeb787"
     },
     {
       "path": "docs/IMPLEMENTATION.md",
-      "sha256": "12fd3194fe377d152bd8ce6d081e11da97d6fca336f669c228272701d23987e7"
+      "sha256": "4d94dc534944ca43815b52bc9034c113c8ef4691550da60a8542d0e2117d8b94"
+    },
+    {
+      "path": "docs/JSON-TRANSFORM-PROFILE.md",
+      "sha256": "55355408a9525ea312e5373fec05d26304caf72a1339b9365cb3512c521ee6a6"
     },
     {
       "path": "docs/METHODOLOGY.md",
       "sha256": "9c8bcdbb226908fb004fa42ddf5170266452406142539f0bf43ea71a54ad919f"
     },
     {
+      "path": "docs/PROFILE-API.md",
+      "sha256": "3d83d4e075c3299a52985120955567762f0e92bb6977b54ebb539d82483de7b7"
+    },
+    {
       "path": "docs/PROFILE.md",
-      "sha256": "56232f7b3e5c943dd13e35118b370b1354b159d1bd44233442eefff0e1859fc6"
+      "sha256": "f4e586ad288e2f6feeca22af21190da6acfd9ee03013f80c30d7a918305a7bad"
     },
     {
       "path": "docs/VALIDATION.md",
-      "sha256": "cbb1f91891794d702757e39cc9558cd463d320261671cde5db902d42052ebea3"
+      "sha256": "3927835232294b286a2cb2a4bcbd37441301fca548b057399037dc160c243f8d"
     },
     {
       "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.0.md",
@@ -151,7 +159,7 @@
     },
     {
       "path": "harness/cli.py",
-      "sha256": "42f0878d242bb1b4394ef92abb0bc28247593928805d1b9af69cac6d7fa31852"
+      "sha256": "5ce9053f0df733102b4100e1c9e3c20cf313a7397c578a41e1b78c8133e17535"
     },
     {
       "path": "harness/inflight.py",
@@ -180,6 +188,38 @@
     {
       "path": "harness/oracle/sample.py",
       "sha256": "ddbcfdb917fbefeef3c9316aba195a99f66322c63a1bff848c5de267e2cb7a45"
+    },
+    {
+      "path": "harness/profiles/__init__.py",
+      "sha256": "4a0ea5965b0d5062d836052f6a8a7cb4f6621b659478f72764b75c50e96e96d6"
+    },
+    {
+      "path": "harness/profiles/base.py",
+      "sha256": "4657162dfc8f8546a88837a38e2a096acdcb6932a5e7e5102f91b8c21adb1497"
+    },
+    {
+      "path": "harness/profiles/json_transform/__init__.py",
+      "sha256": "04379a428ff34e8158da08d9eb0f041e898560e07c1163d61b155ca2538efc9d"
+    },
+    {
+      "path": "harness/profiles/json_transform/mutants.py",
+      "sha256": "cdd9e6fc47513ac497f0fa5549cbc3e7539b45eace36d0b8577caf0865d6ba31"
+    },
+    {
+      "path": "harness/profiles/json_transform/oracle.py",
+      "sha256": "8b7e11a72066fdb1e80e3370cabd6791c08c73183246dab438284f2b3cc635b9"
+    },
+    {
+      "path": "harness/profiles/json_transform/profile.py",
+      "sha256": "9075eb7689939b7b18dbce17d4774078cb03cbf958719c9ab3d1fe955ba3a3b6"
+    },
+    {
+      "path": "harness/profiles/json_transform/reference.py",
+      "sha256": "22e14c698debc37955c79da89ac5416a7d358600daf026176c3dac283065f985"
+    },
+    {
+      "path": "harness/profiles/ordinal.py",
+      "sha256": "9615a28ed05bda53d1da1df073d498a808cdc8cae2e86d9c71aa33656701b6fe"
     },
     {
       "path": "harness/reference/__init__.py",
@@ -456,6 +496,10 @@
     {
       "path": "tests/test_extraction.py",
       "sha256": "7463ee4c47f3fce9cfbf072bbad9f9a85b69469cbfa96b41571478f081afdda9"
+    },
+    {
+      "path": "tests/test_profiles.py",
+      "sha256": "a3140e47c3f16fd1fb8ec23bba698e70ba259e630f012050deaaa86dd2f2931b"
     }
   ]
 }

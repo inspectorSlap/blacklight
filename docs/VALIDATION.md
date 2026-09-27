@@ -1,6 +1,6 @@
 # Extraction validation
 
-Validation run on 2026-09-27 using the extracted copy, Python standard library, and freshly generated synthetic fixtures. These results do not describe an external target or a completed research campaign.
+Extraction validation run on 2026-09-27 using the extracted copy, Python standard library, and freshly generated synthetic fixtures. These results do not describe an external target or a completed research campaign.
 
 | Check | Result |
 |---|---|
@@ -31,3 +31,7 @@ Regression tests cover pending approval, reference import separation, exact anch
 ## Limits
 
 These are bounded synthetic checks of the bundled ordinal profile. They do not establish universal defect detection, calibrated error rates across arbitrary inputs, statistical validity of every retained procedure, operational durability of the disabled campaign code, or enforced isolation between agents. The export scan is heuristic and cannot certify absence of every sensitive detail. Selected source files were checked against a private hash manifest; that manifest is stored outside this package.
+
+## Phase 1 validation
+
+The new JSON profile passed five hand-checked oracle/reference cases and detected five of five deliberate defects through their named checks. The ordinal profile was rerun through the shared CLI: 28/28 deliberate defects detected, 47 clean scenarios accepted, and 57 numeric anchors checked. The expanded suite passed 16 tests, and the heuristic export scan reported no issues. Both profiles remain offline.
