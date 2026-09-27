@@ -29,3 +29,9 @@
 
 - Adopted the Blacklight project name in public documentation and license.
 - Added GitHub CI for the local tests and export scan.
+
+## Phase 3 bounded campaign
+
+- Added a frozen per-run specification and separate operator budget for JSON target campaigns.
+- Added durable intent/result evidence, digest verification, resume and explicit uncertainty after interrupted requests.
+- Added local fault tests and a campaign guide.

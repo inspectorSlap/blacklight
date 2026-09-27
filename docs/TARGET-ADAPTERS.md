@@ -63,3 +63,5 @@ Without `--cases`, the probe uses the profile's five bundled examples. `--cases`
 `results/target-probe.json` contains the target identity, case IDs, named failed checks and blocked reason codes. `PASS` means every selected case matched. `FAIL` means at least one completed response violated a criterion. `BLOCKED` means execution stopped without a complete verdict; the report shows how many cases ran. Exit codes are 0, 1 and 2 respectively. There is no fallback to a reference output when a target cannot respond.
 
 Blocked codes include `TARGET_UNAVAILABLE`, `TARGET_TIMEOUT`, `TARGET_EXITED`, `TARGET_IO_ERROR`, `INVALID_JSON`, `BAD_ENVELOPE`, `IDENTITY_MISMATCH`, `IDENTITY_CHANGED`, `HTTP_STATUS`, `INPUT_TOO_LARGE` and `OUTPUT_TOO_LARGE`. Raw standard error, HTTP error bodies and exception strings are excluded. The report is a bounded probe, not durable campaign evidence or qualification of a production system.
+
+The Phase 3 `campaign` command uses these same adapters and limits, with durable intent/result storage and verified resume. See [bounded campaigns](CAMPAIGNS.md).

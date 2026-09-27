@@ -24,7 +24,7 @@ python3 -m harness.cli status --workspace workspace/demo-002
 
 `selfqual` returns 1 for the ordinal profile's intentionally pending approval; inspect its JSON rather than treating that as a software crash. `build` creates a new workspace and refuses reuse. `selfqual` recomputes and replaces that workspace's qualification report; preserve/copy a report before editing code if you need comparison history.
 
-`status` reports whether a report file exists, not whether its contents remain valid after code changes. Artifact freezing for public campaigns is planned.
+`status` reports whether demo/probe reports or a campaign evidence file exist, not whether their contents remain valid after code changes. Campaigns use a separate frozen workspace and verified resume path.
 
 ## Standalone reference
 
@@ -37,7 +37,7 @@ Use the generated fixture payloads as shape examples. Do not pass an entire scen
 
 ## Disabled paths
 
-`campaign` and `ordered-dryrun` return `NOT_IMPLEMENTED` and exit 2 before constructing a target. Every archived Python module in `incubator/` raises immediately before its imports or actions. It is preserved source for design work, not a runnable second product. Removing those guards is not sufficient to restore compatibility: private contract files, prior authorizations and the vendored target are intentionally absent.
+`ordered-dryrun` returns `NOT_IMPLEMENTED` and exit 2 before constructing a target. The bounded JSON `campaign` command is active; see [the campaign guide](CAMPAIGNS.md). Every archived Python module in `incubator/` raises immediately before its imports or actions. It is preserved source for design work, not a runnable second product. Removing those guards is not sufficient to restore compatibility: private contract files, prior authorizations and the vendored target are intentionally absent.
 
 ## Validation and release hygiene
 
@@ -53,3 +53,7 @@ For the other profile, use `--profile json-transform-v1` with `build` and `selfq
 ## Probe your own target (Phase 2)
 
 For the JSON transformation profile, use `probe` with either `--program` or `--url` and a matching `--target-id`. It creates a fresh workspace and writes `results/target-probe.json`. Exit 0 means all selected cases pass; 1 means a completed response failed a criterion; 2 means the run was blocked. See [target adapters](TARGET-ADAPTERS.md) for the request/response contract, examples, bounds and security limits. The ordinal profile does not yet have a target adapter.
+
+## Run a bounded campaign (Phase 3)
+
+See [bounded campaigns](CAMPAIGNS.md) for a complete start/resume example, costs and request limits, evidence files, result meanings and restart behavior. A campaign uses a fresh workspace, a target-capable profile, an explicit request budget, an estimated cost ceiling and `--execute` on each dispatching invocation. The ordinal target path remains unsupported.

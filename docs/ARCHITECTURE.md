@@ -33,7 +33,7 @@ These assets have study-era coupling to contract files, version IDs and earlier 
 
 ## Planned boundaries
 
-A future profile supplies scenario generation, anchors, oracle/reference behavior, mutations, schema normalization, decision checks and acceptance rules. The Phase 2 adapters supply bounded execution and declared identity for the JSON profile. Campaign machinery supplies bounded dispatch, evidence retention, resumption and accounting. Information isolation remains an explicit external boundary. See [the plan](GENERALIZATION-PLAN.md) for deliverables and acceptance criteria.
+A future profile supplies scenario generation, anchors, oracle/reference behavior, mutations, schema normalization, decision checks and acceptance rules. The Phase 2 adapters supply bounded execution and declared identity for the JSON profile. The Phase 3 JSON campaign supplies bounded dispatch, evidence retention, resumption and estimated-cost accounting. The ordinal campaign remains in the design archive. Information isolation remains an explicit external boundary. See [the plan](GENERALIZATION-PLAN.md) for deliverables and acceptance criteria.
 
 ## Phase 1 profile boundary
 
@@ -42,3 +42,7 @@ A future profile supplies scenario generation, anchors, oracle/reference behavio
 ## Phase 2 target boundary
 
 `harness/target_adapters.py` implements bounded process and literal-loopback HTTP transports. `harness/target_probe.py` applies a target-capable profile's cases and checks, returning PASS, FAIL or BLOCKED without fallback. `examples/` contains deliberately small toy targets and custom inputs. The [adapter guide](TARGET-ADAPTERS.md) defines the wire protocol and limits.
+
+## Phase 3 evidence boundary
+
+`harness/campaign.py` freezes a per-run specification and operator budget separately, records a durable dispatch intent before each target call, then commits canonical response evidence with SHA-256 digests and a chain index. Resume verifies the full prefix and identities. `report.json` is rebuilt from the store, while explicit `--execute` is required for each invocation. Research authority is not inferred from a technical pass. See [CAMPAIGNS.md](CAMPAIGNS.md).

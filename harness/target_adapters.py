@@ -165,7 +165,6 @@ class ProcessAdapter:
         self.sha256 = _digest(path)
         self.timeout = timeout
         self.cwd = Path(workspace) / "target-workdir"
-        self.cwd.mkdir(parents=True, exist_ok=True)
 
     def identity(self):
         return {"transport": self.kind, "target_id": self.target_id, "program_sha256": self.sha256}
@@ -174,6 +173,7 @@ class ProcessAdapter:
         if _digest(self.program) != self.sha256:
             raise Blocked("IDENTITY_CHANGED")
         body = _json_bytes({"profile": profile_id, "input": payload})
+        self.cwd.mkdir(parents=True, exist_ok=True)
         raw = _run_bounded(self.program, body, self.timeout, self.cwd)
         if _digest(self.program) != self.sha256:
             raise Blocked("IDENTITY_CHANGED")

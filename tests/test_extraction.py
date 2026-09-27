@@ -57,7 +57,7 @@ class ExtractionTests(unittest.TestCase):
         self.assertFalse(selfqual._fails(runner.run_analysis_scenario(SoundReferenceTarget(), scenario, strict=True)))
 
     def test_cli_cannot_enable_external_execution(self):
-        for command in ('campaign', 'ordered-dryrun'):
+        for command in ('ordered-dryrun',):
             p = subprocess.run([sys.executable, '-m', 'harness.cli', command], cwd=ROOT, capture_output=True, text=True)
             self.assertEqual(p.returncode, 2, p.stdout + p.stderr)
             self.assertIn('NOT_IMPLEMENTED', p.stderr)

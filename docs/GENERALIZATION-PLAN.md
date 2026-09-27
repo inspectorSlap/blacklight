@@ -24,11 +24,11 @@ Local-process JSON and literal-loopback HTTP adapters now use a target identity 
 
 **Acceptance:** a user-provided executable and a toy HTTP service can be tested; timeouts, invalid JSON, identity changes and unavailable endpoints become explicit blocked results; transport logs omit credentials; no implicit fallback to the reference occurs.
 
-## Phase 3 — campaign evidence and restart safety
+## Phase 3 — campaign evidence and restart safety (bounded JSON prototype implemented)
 
 Extract the retained evidence store, byte/digest indexes, continuation logic and bounded dispatcher. Replace release-number globals and private-contract lookups with a per-run specification. Separate freeze identity, operator policy, live execution authorization and research verdict.
 
-**Acceptance:** crash/restart does not silently lose or duplicate completed evidence; corrupt archives and changed target/profile identities stop resumption; cost and request bounds are enforced before work; reports distinguish aborted, incomplete, indeterminate and passed runs. Demonstrate this with local faults, not a large paid campaign.
+**Acceptance:** crash/restart does not silently lose or duplicate completed evidence; corrupt archives and changed target/profile identities stop resumption; cost and request bounds are enforced before work; reports distinguish aborted, incomplete, indeterminate and passed runs. Local fault tests cover these paths. The active prototype is limited to the JSON profile and two local transports; ordinal campaign support and a general supervisor remain future work.
 
 ## Phase 4 — independent agent workflow
 

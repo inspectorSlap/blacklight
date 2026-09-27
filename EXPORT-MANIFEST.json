@@ -1,5 +1,5 @@
 {
-  "description": "Blacklight Phase 2 preview source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
+  "description": "Blacklight Phase 3 preview source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
   "files": [
     {
       "path": ".gitattributes",
@@ -15,7 +15,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "a600096fb18933def7995900d72e1254873df4711f004c4e97e407fd337f8787"
+      "sha256": "e26f29e72cdeaf7c1c814b0f75a627417b4eac3eba3c1ce2161a3f7d1a5d0f89"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -31,11 +31,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "f0efcc333ade140a2f49335b334b90cb563ce30cd9178e7e2f9db5013ff4c527"
+      "sha256": "5beeaa3bcc2dee064557155717e998962974498eaabe75500fa728d462122098"
     },
     {
       "path": "SECURITY.md",
-      "sha256": "11e1d1cba4796d6c2a9f2b04e7e0d59e7b1ed2b0ff84fd2280b6d141bb4478c6"
+      "sha256": "9a4b3fc7da4bac33264060da30584fa23ea27ca5bf53fe1ed5eede9e6ec5d901"
     },
     {
       "path": "agents/IMPLEMENTER.md",
@@ -51,7 +51,11 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "8f1cb29f68ef4235d3281c108317017cdc2b9da7144206e33640a0606907d8ef"
+      "sha256": "550005216128f87498d9bc9a45d404cb9769a834807377efee8e4a216833aaa2"
+    },
+    {
+      "path": "docs/CAMPAIGNS.md",
+      "sha256": "1ad65248fd3d31070ba32d13f006bc386a9b5e63f83c8f72bb6dee37fed9fdb2"
     },
     {
       "path": "docs/EXTRACTION.md",
@@ -59,11 +63,11 @@
     },
     {
       "path": "docs/GENERALIZATION-PLAN.md",
-      "sha256": "d6b05237578f27c4a9b5078dc7c959b9074303f68daace72d3cb3474545196f8"
+      "sha256": "f90f709d1fdc48011827c4a3ae424bb8d26f265bd46b0941f5ad4728a5603260"
     },
     {
       "path": "docs/IMPLEMENTATION.md",
-      "sha256": "247ceda2c29cdae331a8e71e22a5c4f98392842b7c23eee444e6b1c54f93c44d"
+      "sha256": "e0ccdf0c43219f5e9683142b93b0fb1a89e5b619dde4df14655cd6acb0f4a214"
     },
     {
       "path": "docs/JSON-TRANSFORM-PROFILE.md",
@@ -87,11 +91,11 @@
     },
     {
       "path": "docs/TARGET-ADAPTERS.md",
-      "sha256": "08a6d6f8b69ed2952ea7b1b3c51b2f928584a6bb77b55a22458725998dedf89a"
+      "sha256": "d2a401acaef1dcbc659a057bdae71fdef7dd3f0a33c6505f5455e74e1545b1a0"
     },
     {
       "path": "docs/VALIDATION.md",
-      "sha256": "fc45e16797833a417d2d5a5f7ac50bf6b0e01f554c0ef05d3437fda78508fa26"
+      "sha256": "d3fc1558f8fc2daf813b6c16c6093863720ae278be07902e46ad5db3f9ec452d"
     },
     {
       "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.0.md",
@@ -162,6 +166,10 @@
       "sha256": "bd38cf927fbc8993ea1a182d9e8d666fe8f6d0ccaad25cefb44ccb952ee0cc21"
     },
     {
+      "path": "harness/campaign.py",
+      "sha256": "27c99838612be2a470dd9b64d7bb0c8f33531a4d633d3bd0a59441b8222df01c"
+    },
+    {
       "path": "harness/checks/__init__.py",
       "sha256": "f6b6c6fcd606d3a476c553bdedbc1b630815e42c7a96a5af655f53bea97b35dd"
     },
@@ -183,7 +191,7 @@
     },
     {
       "path": "harness/cli.py",
-      "sha256": "b62a33abbeea488de98384f12c0c5e8a1c40bf59b3ddc8ca33778bc5cd7a8ae7"
+      "sha256": "6a3f1d3aa1a123ad70f9ad16317f02424197d9bf21ec88857522e4b1d44a4be0"
     },
     {
       "path": "harness/inflight.py",
@@ -287,7 +295,7 @@
     },
     {
       "path": "harness/target_adapters.py",
-      "sha256": "01f54d9b2d21788dbc6bb7d5bc2ee6c541e9583cb901d2e9102d31c016dcbfd7"
+      "sha256": "344bcef23efa6ea9c95a1005301b8441bdc8a3d553c693c98446ad5bd73f271c"
     },
     {
       "path": "harness/target_probe.py",
@@ -526,8 +534,12 @@
       "sha256": "6d75664aecf1360fee4837f6a01741969b0c74f0b4de1822a1be23e4e9b6e9b3"
     },
     {
+      "path": "tests/test_campaign.py",
+      "sha256": "0371a8d4251343ade8b9e2b65426f34ce66b0e52a18682de7851b3295f1512bf"
+    },
+    {
       "path": "tests/test_extraction.py",
-      "sha256": "05450402c43e4b8abbb23b2227707b1230b24f25fbbe6f8eb7e47ea58add68e0"
+      "sha256": "02fe5a44e0cf21e333c22e58d9454cea75773df59a0e59e807b334a6fae6afdf"
     },
     {
       "path": "tests/test_profiles.py",

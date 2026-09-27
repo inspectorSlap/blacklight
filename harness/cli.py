@@ -3,6 +3,7 @@ import argparse
 import json
 import math
 import os
+import sqlite3
 from pathlib import Path
 import sys
 
@@ -18,13 +19,20 @@ def main(argv=None):
     transport.add_argument("--url", help="literal loopback HTTP URL")
     parser.add_argument("--target-id", help="declared identity returned in every response")
     parser.add_argument("--timeout", type=float, default=3.0, help="seconds per target request, 0.1–30")
-    parser.add_argument("--cases", type=Path, help="JSON array of custom input objects; probe only")
+    parser.add_argument("--cases", type=Path, help="JSON array of custom input objects")
+    parser.add_argument("--max-requests", type=int, help="frozen total request budget; equal to case count")
+    parser.add_argument("--max-cost", help="frozen estimated cost ceiling")
+    parser.add_argument("--unit-cost", help="operator estimated cost per request")
+    parser.add_argument("--step-limit", type=int, help="maximum requests this invocation")
+    parser.add_argument("--execute", action="store_true", help="authorize target calls this invocation")
+    parser.add_argument("--resume", action="store_true", help="continue an existing campaign")
+    parser.add_argument("--abort", action="store_true", help="close an existing campaign")
     args = parser.parse_args(argv)
     if args.command == "profiles":
         print(json.dumps([{"id": p.profile_id, "description": p.description} for p in PROFILES.values()], indent=2))
         return 0
-    if args.command in ("campaign", "ordered-dryrun"):
-        print("NOT_IMPLEMENTED: campaign and ordered execution are not available.", file=sys.stderr)
+    if args.command == "ordered-dryrun":
+        print("NOT_IMPLEMENTED: ordered execution is not available.", file=sys.stderr)
         return 2
     if args.workspace:
         os.environ["BLACKBOX_WORKSPACE"] = str(args.workspace.resolve())
@@ -34,12 +42,59 @@ def main(argv=None):
     marker = workspace / "profile.json"
     if args.command == "status":
         recorded = json.loads(marker.read_text())["profile"] if marker.is_file() else None
-        print(json.dumps({"stage": "PHASE2_LOCAL_TARGET_PROTOTYPE", "available_profiles": list(PROFILES),
+        print(json.dumps({"stage": "PHASE3_BOUNDED_CAMPAIGN", "available_profiles": list(PROFILES),
                           "workspace_profile": recorded, "target_adapters": ["local-process", "loopback-http"],
                           "remote_network_enabled": False,
                           "report_exists": (workspace / "results/profile-evaluation.json").is_file(),
-                          "target_probe_exists": (workspace / "results/target-probe.json").is_file()}, indent=2))
+                          "target_probe_exists": (workspace / "results/target-probe.json").is_file(),
+                          "campaign_evidence_exists": (workspace / "evidence.sqlite3").is_file()}, indent=2))
         return 0
+    if args.command == "campaign":
+        from . import campaign
+        from .target_adapters import Blocked, ProcessAdapter, LoopbackHttpAdapter, validate_target_id
+        if not args.workspace:
+            parser.error("campaign requires --workspace")
+        if not hasattr(profile, "target_cases") or not hasattr(profile, "check_target_output"):
+            parser.error("profile does not support target campaigns yet")
+        if args.abort and not args.resume:
+            parser.error("--abort requires --resume")
+        if not math.isfinite(args.timeout) or not 0.1 <= args.timeout <= 30:
+            parser.error("--timeout must be 0.1–30 seconds")
+        adapter = None
+        if not args.abort:
+            if (args.program is None) == (args.url is None) or not args.target_id:
+                parser.error("campaign requires --target-id and exactly one of --program or --url")
+            try:
+                validate_target_id(args.target_id)
+                adapter = (ProcessAdapter(args.program, args.target_id, workspace, args.timeout)
+                           if args.program else LoopbackHttpAdapter(args.url, args.target_id, args.timeout))
+            except (ValueError, Blocked) as exc:
+                parser.error("target unavailable or invalid: %s" % (exc.code if isinstance(exc, Blocked) else exc))
+        try:
+            if args.resume:
+                if args.cases or args.max_requests is not None or args.max_cost is not None or args.unit_cost is not None:
+                    parser.error("resume uses frozen cases and budget; omit new-run options")
+                report = campaign.resume(workspace, profile, adapter, execute=args.execute,
+                                         step_limit=args.step_limit, abort=args.abort)
+            else:
+                if args.max_requests is None or args.max_cost is None or args.unit_cost is None:
+                    parser.error("new campaign requires --max-requests, --max-cost and --unit-cost")
+                custom = None
+                if args.cases:
+                    if args.cases.stat().st_size > 1048576:
+                        parser.error("cases file exceeds 1 MiB")
+                    custom = json.loads(args.cases.read_text())
+                cases = profile.target_cases(custom)
+                report = campaign.start(workspace, profile, adapter, cases, args.max_requests,
+                                        args.max_cost, args.unit_cost, execute=args.execute,
+                                        step_limit=args.step_limit)
+        except sqlite3.DatabaseError:
+            parser.error("campaign evidence store is invalid")
+        except (campaign.CampaignError, ValueError, TypeError, OSError, KeyError) as exc:
+            parser.error("campaign refused: %s" % exc)
+        print(json.dumps(report, indent=2))
+        print(workspace / "report.json")
+        return 0 if report["verdict"] == "PASSED" else 1 if report["verdict"] == "FAILED" else 2
     if args.command == "probe":
         from .target_adapters import Blocked, ProcessAdapter, LoopbackHttpAdapter, validate_target_id
         from . import target_probe

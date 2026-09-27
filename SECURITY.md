@@ -9,3 +9,7 @@ Before public release, the maintainer should establish a private vulnerability r
 ## Phase 2 target execution
 
 The process adapter executes the program selected by the operator. It limits runtime and I/O and passes a minimal environment, but it does not confine file access or network access. Run only trusted programs or place them in an operating-system sandbox. The HTTP adapter accepts literal loopback IPs only and never follows redirects. Target output and error bodies are omitted from reports; custom case inputs are sent to the selected target and may be sensitive to that service.
+
+## Phase 3 campaign evidence
+
+Campaign workspaces retain input and output JSON in the local SQLite evidence store. Protect those files and inspect them before sharing. Dispatch intent is committed before target execution; after a crash or transport uncertainty, the campaign stops as `INDETERMINATE` rather than automatically retrying a possible side effect. Evidence digests detect accidental corruption, not an attacker able to rewrite the whole workspace and recompute hashes. Process targets are not sandboxed.

@@ -39,3 +39,7 @@ The new JSON profile passed five hand-checked oracle/reference cases and detecte
 ## Phase 2 validation
 
 The JSON profile passed all five bundled cases and two custom input cases against the bundled executable, plus two custom cases against the bundled loopback HTTP service. The expanded suite passed 23 tests, including process timeout, invalid JSON, oversized output, nonzero exit, identity mismatch, program digest change, loopback URL restrictions, unavailable HTTP service, wrong target output and sanitized reports. The actual HTTP smoke test used a temporary loopback server; unit tests mock HTTP to run without network privileges. These tests do not establish safe execution of untrusted programs or durability of campaigns.
+
+## Phase 3 validation
+
+The JSON campaign was run locally against the bundled executable in two invocations: two cases first, then the remaining three. It reported `INCOMPLETE` and then `PASSED` with five completed cases. The expanded suite passed 31 tests, including simulated interruption after dispatch, interruption after committed evidence but before report writing, target/profile identity changes, damaged freeze and response bytes, pre-dispatch budget refusal, blocked transport, abort and failed checks. This validates the bounded local prototype, not exactly-once target effects or a paid campaign.
