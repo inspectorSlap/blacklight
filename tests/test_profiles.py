@@ -15,8 +15,8 @@ from harness.profiles.json_transform.profile import ANCHORS
 
 
 class ProfileTests(unittest.TestCase):
-    def test_registry_exposes_two_different_contracts(self):
-        self.assertEqual(set(PROFILES), {"ordinal-v1", "json-transform-v1"})
+    def test_registry_exposes_distinct_contracts(self):
+        self.assertEqual(set(PROFILES), {"ordinal-v1", "json-transform-v1", "graph-path-v1"})
         self.assertTrue(all(callable(p.build) and callable(p.evaluate) for p in PROFILES.values()))
 
     def test_json_oracle_and_reference_match_hand_answers(self):

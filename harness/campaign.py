@@ -128,6 +128,8 @@ def _load(workspace, connection, profile, adapter):
     cases = spec.get("cases")
     if not isinstance(cases, list) or not 1 <= len(cases) <= MAX_CASES:
         raise CampaignError("frozen cases are invalid")
+    if hasattr(profile, "validate_target_cases"):
+        profile.validate_target_cases(cases)
     if policy.get("max_requests") != len(cases):
         raise CampaignError("frozen request budget is invalid")
     unit = _money(policy.get("unit_cost"), "unit cost")
@@ -166,10 +168,16 @@ def _load(workspace, connection, profile, adapter):
     return spec, policy, rows, meta["state"]
 
 
-def _report(spec, policy, rows, state, blocked_reason=None):
+def _report(spec, policy, rows, state, profile, blocked_reason=None):
     completed = [r for r in rows if r[2] == "COMPLETE"]
     uncertain = bool(rows and rows[-1][2] == "INTENT")
     failed = sum(bool(json.loads(row[7])) for row in completed)
+    relational = hasattr(profile, "check_target_relations")
+    relations_status = ("EVALUATED" if len(completed) == len(spec["cases"]) and not uncertain
+                        else "PENDING") if relational else "NOT_APPLICABLE"
+    relation_failures = (profile.check_target_relations(
+        spec["cases"], {row[1]: json.loads(row[5]) for row in completed})
+        if relations_status == "EVALUATED" else [])
     if state == "ABORTED":
         verdict = "ABORTED"
     elif uncertain:
@@ -177,11 +185,13 @@ def _report(spec, policy, rows, state, blocked_reason=None):
     elif len(completed) < len(spec["cases"]):
         verdict = "INCOMPLETE"
     else:
-        verdict = "FAILED" if failed else "PASSED"
+        verdict = "FAILED" if failed or relation_failures else "PASSED"
     return {"run_id": spec["run_id"], "profile": spec["profile"], "target": spec["target"],
             "verdict": verdict, "research_verdict": None,
             "planned_cases": len(spec["cases"]), "completed_cases": len(completed),
             "passed_cases": len(completed) - failed, "failed_cases": failed,
+            "relations_status": relations_status, "failed_relations": len(relation_failures),
+            "relation_failures": relation_failures,
             "uncertain_inflight_case": rows[-1][1] if uncertain else None,
             "blocked_reason": blocked_reason,
             "estimated_cost": str(Decimal(policy["unit_cost"]) * len(rows)),
@@ -206,6 +216,8 @@ def start(workspace, profile, adapter, cases, max_requests, max_cost, unit_cost,
         raise CampaignError("workspace already exists; use --resume or a new path")
     if not 1 <= len(cases) <= MAX_CASES:
         raise CampaignError("campaign requires 1–32 cases")
+    if hasattr(profile, "validate_target_cases"):
+        profile.validate_target_cases(cases)
     if max_requests != len(cases):
         raise CampaignError("max requests must equal planned cases before any target work")
     ceiling, unit = _money(max_cost, "cost ceiling"), _money(unit_cost, "unit cost")
@@ -253,7 +265,7 @@ def resume(workspace, profile, adapter, execute=False, step_limit=None, abort=Fa
             connection.commit()
             state = "ABORTED"
         if state == "ABORTED" or not execute or (rows and rows[-1][2] == "INTENT"):
-            return _publish(workspace, _report(spec, policy, rows, state))
+            return _publish(workspace, _report(spec, policy, rows, state, profile))
         limit = min(len(spec["cases"]), len(rows) + (step_limit or MAX_CASES))
         for position in range(len(rows), limit):
             case = spec["cases"][position]
@@ -265,7 +277,7 @@ def resume(workspace, profile, adapter, execute=False, step_limit=None, abort=Fa
                 observed = adapter.request(profile.profile_id, case["input"])
             except Blocked as exc:
                 rows = connection.execute("SELECT position,case_id,state,request,request_sha256,response,response_sha256,checks_json,chain_sha256 FROM evidence ORDER BY position").fetchall()
-                return _publish(workspace, _report(spec, policy, rows, state, exc.code))
+                return _publish(workspace, _report(spec, policy, rows, state, profile, exc.code))
             try:
                 response = _bytes(observed)
                 checks = profile.check_target_output(observed, case["expected"])
@@ -281,4 +293,4 @@ def resume(workspace, profile, adapter, execute=False, step_limit=None, abort=Fa
                                (response, response_sha, json.dumps(checks), chain, position))
             connection.commit()  # completed evidence is now durable
             rows = connection.execute("SELECT position,case_id,state,request,request_sha256,response,response_sha256,checks_json,chain_sha256 FROM evidence ORDER BY position").fetchall()
-        return _publish(workspace, _report(spec, policy, rows, state))
+        return _publish(workspace, _report(spec, policy, rows, state, profile))

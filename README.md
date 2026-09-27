@@ -4,7 +4,7 @@
 
 Blacklight is an extracted Python prototype for testing an implementation against a separately specified contract. It combines an exact oracle, a separate reference implementation, known-broken targets, synthetic scenarios, and explicit review gates.
 
-**Current status: Phase 4 preview.** Two profiles run through a common interface. The JSON profile can probe a local target and run a bounded, restart-safe campaign. A two-role handoff and tested Docker reviewer boundary are available; the ordinal profile remains an offline demonstration.
+**Current status: metamorphic preview after Phase 4.** Three profiles share the interface. `json-transform-v1` checks exact outputs; `graph-path-v1` adds cross-run relations; `ordinal-v1` remains an offline demonstration. Target-capable profiles can use bounded local probes and durable campaigns. The two-role Docker workflow is available. **The new graph profile has not been tested on a live engine.**
 
 ## Try Blacklight locally
 
@@ -14,12 +14,13 @@ Python 3.11+; standard library only. No keys, provider accounts, packages, targe
 python3 -m harness.cli profiles
 python3 -m harness.cli demo --profile ordinal-v1 --workspace ./workspace/ordinal-demo
 python3 -m harness.cli demo --profile json-transform-v1 --workspace ./workspace/json-demo
+python3 -m harness.cli demo --profile graph-path-v1 --workspace ./workspace/graph-demo
 python3 -m unittest discover -s tests -v
 ```
 
-Choose a fresh workspace for each demo. The ordinal command generates synthetic fixtures and a measured failure registry. The JSON command tests five hand-checked cases and five deliberate defects. Both use the same workspace and report flow. The ordinal demo does **not** run the hundreds of thousands of evaluations described by its retained simulation grid.
+Choose a fresh workspace for each demo. The ordinal command generates synthetic fixtures and a measured failure registry. The JSON command tests five hand-checked cases and five deliberate defects. The graph command checks three hand-worked bases, three cross-run relations per base and six deliberate defects. All use the same workspace and report flow. The ordinal demo does **not** run the hundreds of thousands of evaluations described by its retained simulation grid.
 
-A successful demo exits zero when its technical checks pass. The ordinal research gate still reports `HARNESS_NOT_SELF_QUALIFIED` because operator approval is pending. Ordinal `selfqual` reports that closed gate with exit code 1. No historic approval applies to this copy. The separate `probe` and `campaign` commands can test only the JSON profile through the bounded local transports below.
+A successful demo exits zero when its technical checks pass. The ordinal research gate still reports `HARNESS_NOT_SELF_QUALIFIED` because operator approval is pending. Ordinal `selfqual` reports that closed gate with exit code 1. No historic approval applies to this copy. The separate `probe` and `campaign` commands support the JSON and graph profiles through the bounded local transports below.
 
 ## Test a local target
 
@@ -29,7 +30,7 @@ python3 -m harness.cli probe --profile json-transform-v1 \
   --workspace ./workspace/process-probe
 ```
 
-This runs the five bundled examples against a toy executable. Use `--cases examples/custom-cases.json` to supply your own input values. The [target adapter guide](docs/TARGET-ADAPTERS.md) includes the loopback HTTP example, target protocol, limits and result meanings. The probe and durable campaign accept the JSON profile only at this stage. See [bounded campaigns](docs/CAMPAIGNS.md) for freeze, budgets, resume, and result meanings.
+This runs the five bundled examples against a toy executable. Use `--cases examples/custom-cases.json` to supply your own input values. The [target adapter guide](docs/TARGET-ADAPTERS.md) includes the loopback HTTP example, target protocol, limits and result meanings. The probe and durable campaign also accept the synthetic graph profile. See [bounded campaigns](docs/CAMPAIGNS.md) for freeze, budgets, resume, and result meanings.
 
 ## What is usable now
 
@@ -46,6 +47,7 @@ This runs the five bundled examples against a toy executable. Use `--cases examp
 | Different schemas and criteria | Supported by writing a new profile module; no plug-in loader yet |
 | Local process and loopback HTTP target probes | Runnable for `json-transform-v1`; bounded and explicitly incomplete on transport failure |
 | JSON transformation example | Runnable as `json-transform-v1` with independent examples and five mutants |
+| Metamorphic graph path example | Synthetic/toy runs for `graph-path-v1`; no live-engine validation |
 | Two-role discovery/review process | Handoff, expectation freeze, report-only release and tested Docker process boundary |
 
 The oracle and reference have different implementations but share historical authoring lineage. This export does not claim independent human authorship, a new blinded assessment, or independent agent agreement. See [methodology](docs/METHODOLOGY.md).
@@ -57,6 +59,8 @@ The oracle and reference have different implementations but share historical aut
 - [Target adapters](docs/TARGET-ADAPTERS.md): process/HTTP protocol and limits.
 - [Bounded campaigns](docs/CAMPAIGNS.md): freeze, budgets, evidence and restart behavior.
 - [Two-role workflow](docs/AGENT-WORKFLOW.md): independent expectations, narrow handoff and Docker containment.
+- [Graph path profile](docs/GRAPH-PATH-PROFILE.md): exact anchors, cross-run relations and toy demo.
+- [Test-type roadmap](docs/TEST-TYPES-ROADMAP.md): implemented, planned and live-engine validation boundaries.
 - [Ordinal profile](docs/PROFILE.md): supported dimensions and fixed assumptions.
 - [JSON example](docs/JSON-TRANSFORM-PROFILE.md): second profile and its exact contract.
 - [Architecture](docs/ARCHITECTURE.md): active code and preserved design assets.

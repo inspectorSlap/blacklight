@@ -1,5 +1,5 @@
 {
-  "description": "Blacklight Phase 4 preview source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
+  "description": "Blacklight metamorphic preview source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
   "files": [
     {
       "path": ".gitattributes",
@@ -15,11 +15,11 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "c65da0e481cb960b86999a83ac73973680286910424ebc3385a4ce104a531719"
+      "sha256": "ecea982888de526f40763885a20595234cfd2810c53dbb1baa1634fcc93446cd"
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "c951dcd137aa323887d7d710b31fb4341eef3344e6d4257334df90386c445300"
+      "sha256": "52d2dd7b3e57f4b52aa0a51f267ab3f48541b52f54f5bbd1fc5eae4eac1a1edb"
     },
     {
       "path": "EXTRACTION-INVENTORY.json",
@@ -31,11 +31,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "b4305562433444fd57ddd27870dc76c5b1efe159999613132f7662526f538a4c"
+      "sha256": "66d70c39b5302f17a4a4fe274514481d712f84335e3694dc292f718ca85433c3"
     },
     {
       "path": "SECURITY.md",
-      "sha256": "7bc847da8aa6639ffdc57a0450bb79e219eaea660c847c22e5506f5a2914f479"
+      "sha256": "6c4fe4955d320f3a05a9ee2d6743955a642e0abdd55556c58be939b0ae3953be"
     },
     {
       "path": "agents/IMPLEMENTER.md",
@@ -55,11 +55,11 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "7ea7269924c8e7d9121120cd54d588b449f2737fb5bcee1766a1a2be35822ec8"
+      "sha256": "d49f15cfa1260935a5405dfd4874ee7ed31f23a2e3a678be3b306d2a434641e5"
     },
     {
       "path": "docs/CAMPAIGNS.md",
-      "sha256": "7c015a47d6c0d71eb890f217171b3f948cd3f2a5e669f1df38a77fe4fd0ec3ec"
+      "sha256": "20d0a835a76d5fa79ec0c8efc0dde87836822b9cb510896b141324ea52eadda0"
     },
     {
       "path": "docs/EXTRACTION.md",
@@ -67,11 +67,15 @@
     },
     {
       "path": "docs/GENERALIZATION-PLAN.md",
-      "sha256": "6962820afe852c9a496a6b9442bcdcc88bf327c51ed29bd074e4412cdac9a8ac"
+      "sha256": "00f3e49339c0c0968bf409e0c16ccad53c443f8f80195f83e4121be2d596939a"
+    },
+    {
+      "path": "docs/GRAPH-PATH-PROFILE.md",
+      "sha256": "7603bd87877f15ba3c5b377897ef9421e25b0b3cea548b26229771bb8e9accd0"
     },
     {
       "path": "docs/IMPLEMENTATION.md",
-      "sha256": "607cfdd4648ef5368f1b849f3b8a520ec415bce7346dbbad722c9183cad45c04"
+      "sha256": "1ae1514b552b2ee1d1b32456551027ec5117970b8e0634c08864f1137177453d"
     },
     {
       "path": "docs/JSON-TRANSFORM-PROFILE.md",
@@ -83,7 +87,7 @@
     },
     {
       "path": "docs/PROFILE-API.md",
-      "sha256": "98af8e07437bbc27b12eb6ed19ebbcb5d7698d22be74c770047bd0faef63ddc4"
+      "sha256": "061ee0165374b11837f16caf58881ca824baa318d5a604206ac0807cd96faf74"
     },
     {
       "path": "docs/PROFILE.md",
@@ -95,11 +99,15 @@
     },
     {
       "path": "docs/TARGET-ADAPTERS.md",
-      "sha256": "d2a401acaef1dcbc659a057bdae71fdef7dd3f0a33c6505f5455e74e1545b1a0"
+      "sha256": "0a043f8ea06dee5bb56375ad696a74e1550f3b6fd020a83bbcb968b00883bd87"
+    },
+    {
+      "path": "docs/TEST-TYPES-ROADMAP.md",
+      "sha256": "948c792fe82a13d725b966d1f482f534b39766edec996b2823ad92786fb4b072"
     },
     {
       "path": "docs/VALIDATION.md",
-      "sha256": "38863a352d17a480a478af8fec19f9915ff34f0f8af21638a54988a4b08e21a0"
+      "sha256": "3a7dec4cf865ab8066077d7ec6200e9f7334ebc7720b0766888c5c85a3262928"
     },
     {
       "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.0.md",
@@ -132,6 +140,14 @@
     {
       "path": "examples/custom-cases.json",
       "sha256": "74ea688ac276e19c65afeeae38597df416097951a0a4af8db30eadbbd074046f"
+    },
+    {
+      "path": "examples/graph_path_custom.json",
+      "sha256": "fd46d805bff7ffd1f1692f0b930be2c48a85b1684fa9f897d2aaa81d2faaca19"
+    },
+    {
+      "path": "examples/graph_path_process.py",
+      "sha256": "56eb4da3d2c36ddc6cfedd5bc1cb7fe28ebfb947286e9709a2c7b844acba74e3"
     },
     {
       "path": "examples/json_transform_http.py",
@@ -171,7 +187,7 @@
     },
     {
       "path": "harness/campaign.py",
-      "sha256": "e8ad3046eefaeea6c0b68a3f74e5904f1039237883fb35a3efa2d0169d1ac8e5"
+      "sha256": "16a2080f0761bf87c94394d254756b06938f023918fd266e3a8a5623320cce03"
     },
     {
       "path": "harness/checks/__init__.py",
@@ -195,7 +211,7 @@
     },
     {
       "path": "harness/cli.py",
-      "sha256": "6a3f1d3aa1a123ad70f9ad16317f02424197d9bf21ec88857522e4b1d44a4be0"
+      "sha256": "eca661e9bab06a365a789d09cd8b0f4d160b2ba967b04ec844a9b589edd00aac"
     },
     {
       "path": "harness/inflight.py",
@@ -227,11 +243,35 @@
     },
     {
       "path": "harness/profiles/__init__.py",
-      "sha256": "4a0ea5965b0d5062d836052f6a8a7cb4f6621b659478f72764b75c50e96e96d6"
+      "sha256": "c8d2a83642696d9e3d1ace41f15210758e0a66c7a2507d568c08b93aeb7e7eb7"
     },
     {
       "path": "harness/profiles/base.py",
-      "sha256": "309f37ac5dfb80fe546ad6d022e3c9b09d8d13ef042a1ca7720c826259a33902"
+      "sha256": "4cc5fb8f9a47718531e5810bbac61c554d964165fbf006386501d72c609eb19e"
+    },
+    {
+      "path": "harness/profiles/graph_path/__init__.py",
+      "sha256": "55b625e530731457d97d7781243f554551045436ad434143bc675da113801eda"
+    },
+    {
+      "path": "harness/profiles/graph_path/mutants.py",
+      "sha256": "15f4b03215fc76a1fe90ec7e7c9c75c43ea6f801309d3d455fed723902aca11b"
+    },
+    {
+      "path": "harness/profiles/graph_path/oracle.py",
+      "sha256": "63b2f4e3903ccebf5bacea4fdfc9ab3cdbbcfbf1bcd38b73aad7581812705353"
+    },
+    {
+      "path": "harness/profiles/graph_path/profile.py",
+      "sha256": "f5a7204c6d785db470ddead0f9a8def2b12e3bdfef8665e738f3ecd4ae1411da"
+    },
+    {
+      "path": "harness/profiles/graph_path/reference.py",
+      "sha256": "54e7ab8d268b74db5bcfa29d52ce274545f5d4e34ad75d720bd47aaeb167ba07"
+    },
+    {
+      "path": "harness/profiles/graph_path/schema.py",
+      "sha256": "412c8ad6295022062902b5aeb0a91931899e05c6c72109624b026104466c9e28"
     },
     {
       "path": "harness/profiles/json_transform/__init__.py",
@@ -303,7 +343,7 @@
     },
     {
       "path": "harness/target_probe.py",
-      "sha256": "bad03be97329c1abef73b0348f95267abc7f9dcd27b36a3855b0025d1057f2dc"
+      "sha256": "42f6fac2e7a060f1cb8a40176090bc692c17a57706319fb6c9a2b750b8b55b3b"
     },
     {
       "path": "harness/targets.py",
@@ -578,8 +618,12 @@
       "sha256": "02fe5a44e0cf21e333c22e58d9454cea75773df59a0e59e807b334a6fae6afdf"
     },
     {
+      "path": "tests/test_graph_path.py",
+      "sha256": "60e9abfbbbb929bca654508b7fdc4ce60db88544dbe5fb4559becdf74a812fcf"
+    },
+    {
       "path": "tests/test_profiles.py",
-      "sha256": "a3140e47c3f16fd1fb8ec23bba698e70ba259e630f012050deaaa86dd2f2931b"
+      "sha256": "3c200e74007d718220a8e4cce81c8a116abe497ddf30410080ec7d47f43501cc"
     },
     {
       "path": "tests/test_role_workflow.py",

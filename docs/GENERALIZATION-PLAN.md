@@ -28,13 +28,19 @@ Local-process JSON and literal-loopback HTTP adapters now use a target identity 
 
 Extract the retained evidence store, byte/digest indexes, continuation logic and bounded dispatcher. Replace release-number globals and private-contract lookups with a per-run specification. Separate freeze identity, operator policy, live execution authorization and research verdict.
 
-**Acceptance:** crash/restart does not silently lose or duplicate completed evidence; corrupt archives and changed target/profile identities stop resumption; cost and request bounds are enforced before work; reports distinguish aborted, incomplete, indeterminate and passed runs. Local fault tests cover these paths. The active prototype is limited to the JSON profile and two local transports; ordinal campaign support and a general supervisor remain future work.
+**Acceptance:** crash/restart does not silently lose or duplicate completed evidence; corrupt archives and changed target/profile identities stop resumption; cost and request bounds are enforced before work; reports distinguish aborted, incomplete, indeterminate and passed runs. Local fault tests cover these paths. The active prototype now supports JSON and synthetic graph profiles through two local transports; ordinal campaign support and a general supervisor remain future work.
 
 ## Phase 4 — independent agent workflow (local Docker prototype implemented)
 
 Provide two workspace templates, narrow handoff bundles and a tested container/process isolation recipe. Treat the implementer and harness reviewer as separate roles; do not require a particular model vendor. Freeze the independent expectations before releasing target source for later review.
 
 **Acceptance:** an actual Docker containment test confirms that a reviewer process reads only the handoff project input, writes its own workspace, and cannot see synthetic target source or private results. The handoff requires lineage disclosure and freezes expectations before workflow evaluation. This is a local process boundary, not proof of independent reasoning or a general remote-agent sandbox. Never equate different chat windows or prompt instructions with enforced isolation.
+
+## Phase 5 — distinct test types (metamorphic preview implemented)
+
+Add cross-run relations as an optional profile capability, with exact anchors, a separate reference and relation-specific mutants. `graph-path-v1` is the first synthetic slice: edge reordering and an isolated vertex preserve distance, while doubling nonnegative weights doubles a reachable distance. The probe and durable campaign keep relation findings separate from per-case findings, and mark them pending until all paired responses exist. Validation has used local fixtures and a bundled toy executable only; **no live engine has been tested**.
+
+Next candidates are stateful sequences with explicit session/reset semantics, then statistical properties with profile-owned error controls and prospective stopping rules. Neither is implemented or live-engine tested. A real-engine campaign requires separately authorized scope, frozen expectations and an explicit report of limits. See [test-type roadmap](TEST-TYPES-ROADMAP.md).
 
 ## Contributions we can welcome
 
@@ -50,4 +56,4 @@ A useful profile contribution must include a minimal synthetic example, supporte
 
 Tag the first release once a fresh clone can run the advertised demo, the supported profile/adapters are accurately documented, the MIT license is present, export review is complete and CI passes. A useful early release may support only one substantive profile while honestly exposing the intended extension design; it must not advertise planned adapters or universal criteria as implemented.
 
-Use completed acceptance gates to track progress. No calendar estimate is required to decide the next step. The `ordinal-v1` and `json-transform-v1` modules now exercise the shared local interface. Remaining release work includes profile discovery beyond the built-in registry, independent review of the API, broader domain tests and public export review. The local transports, bounded JSON campaign and Docker reviewer recipe are implemented. A tagged release remains gated on the owner's independent PII review and review of the complete Git history.
+Use completed acceptance gates to track progress. No calendar estimate is required to decide the next step. The `ordinal-v1` and `json-transform-v1` modules now exercise the shared local interface. Remaining release work includes profile discovery beyond the built-in registry, independent review of the API, broader domain tests and public export review. The local transports, bounded JSON/graph campaign and Docker reviewer recipe are implemented. The graph profile remains a synthetic/toy preview. A tagged release remains gated on the owner's independent PII review and review of the complete Git history.

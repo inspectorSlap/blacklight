@@ -41,3 +41,9 @@
 - Added implementer/reviewer templates, an allowlisted contract handoff and expectation/lineage freeze.
 - Bound workflow campaigns to the freeze and added a report-only result bundle.
 - Added a restricted Docker reviewer runner, a live containment probe and CI coverage.
+
+## Metamorphic profile preview
+
+- Added `graph-path-v1` with hand-worked anchors, independent algorithms and three cross-run relations.
+- Added relation-aware probe and durable campaign verdicts, six targeted mutants and a bundled toy executable.
+- Documented the untested live-engine boundary and the planned stateful/statistical test types.

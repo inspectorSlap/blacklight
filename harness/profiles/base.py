@@ -37,3 +37,9 @@ class TargetProfile(Profile, Protocol):
     def check_target_output(self, observed: Any, expected: Any) -> list[str]:
         """Return named failed criteria; never substitute a reference result."""
         ...
+
+
+class RelationalTargetProfile(TargetProfile, Protocol):
+    def check_target_relations(self, cases: list[dict[str, Any]], observations: dict[str, Any]) -> list[dict[str, str]]:
+        """Return named cross-case failures after every selected response exists."""
+        ...

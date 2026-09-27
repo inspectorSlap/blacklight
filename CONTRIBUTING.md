@@ -9,3 +9,5 @@ Do not add private datasets, credentials, copied target implementations, or hist
 For now, run the offline demo, unit tests and export scanner described in the implementation guide. Contribution and distribution terms must be selected before this local workspace becomes a public project.
 
 A profile that supports external targets should implement `TargetProfile`, provide bounded cases with independent expected values, and show PASS, FAIL and BLOCKED behavior with a toy target. See [the profile API](docs/PROFILE-API.md) and [target adapter contract](docs/TARGET-ADAPTERS.md).
+
+For a profile that claims a cross-run property, implement `RelationalTargetProfile`, preserve both source and derived responses, report pending relations when a run is incomplete, and add a mutant that violates each named relation while a clean reference passes. The [graph example](docs/GRAPH-PATH-PROFILE.md) is synthetic and has not been tested on a live engine.

@@ -1,8 +1,9 @@
 """Built-in profile registry. Third-party profile loading is not implemented yet."""
 from .ordinal import OrdinalProfile
 from .json_transform.profile import JsonTransformProfile
+from .graph_path.profile import GraphPathProfile
 
-PROFILES = {p.profile_id: p for p in (OrdinalProfile(), JsonTransformProfile())}
+PROFILES = {p.profile_id: p for p in (OrdinalProfile(), JsonTransformProfile(), GraphPathProfile())}
 
 
 def get_profile(profile_id):

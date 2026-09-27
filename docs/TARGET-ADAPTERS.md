@@ -1,6 +1,6 @@
 # Phase 2 target adapters
 
-`probe` sends a bounded set of cases to a user-selected target and compares its output with the profile's independent expectation. The initial target-capable profile is `json-transform-v1`. The ordinal profile retains local qualification only; its external schema and campaign protocol have not been adapted.
+`probe` sends a bounded set of cases to a user-selected target and compares its output with the profile's independent expectation. The target-capable profiles are `json-transform-v1` and the synthetic `graph-path-v1`. The graph profile has not been tested on a live engine. The ordinal profile retains local qualification only; its external schema and campaign protocol have not been adapted.
 
 ## Target protocol
 
@@ -50,7 +50,7 @@ The adapter accepts plain HTTP at a **literal loopback IP** only. It does not us
 
 ## Cases, bounds and results
 
-Without `--cases`, the probe uses the profile's five bundled examples. `--cases` accepts a JSON array of up to 32 profile input objects. The JSON profile computes the expected answers with its exact oracle, which is checked separately against hand-worked examples. Custom inputs are not copied into the report. They receive anonymous IDs such as `custom-001`.
+Without `--cases`, the JSON probe uses five bundled examples and the graph probe uses twelve requests derived from three hand-worked base graphs. The JSON profile accepts 1–32 custom input objects. The graph profile accepts 1–8 custom base graphs and expands each into four requests; see [the graph guide](GRAPH-PATH-PROFILE.md). The profile computes exact base expectations independently. Custom inputs are not copied into the report, but remain in a campaign workspace’s private evidence store.
 
 | Bound | Current limit |
 |---|---:|
@@ -60,7 +60,7 @@ Without `--cases`, the probe uses the profile's five bundled examples. `--cases`
 | Response JSON | 64 KiB |
 | Per-case timeout | 0.1–30 seconds; default 3 |
 
-`results/target-probe.json` contains the target identity, case IDs, named failed checks and blocked reason codes. `PASS` means every selected case matched. `FAIL` means at least one completed response violated a criterion. `BLOCKED` means execution stopped without a complete verdict; the report shows how many cases ran. Exit codes are 0, 1 and 2 respectively. There is no fallback to a reference output when a target cannot respond.
+`results/target-probe.json` contains the target identity, case IDs, named failed checks, optional cross-run relation failures and blocked reason codes. `PASS` means every selected case matched. `FAIL` means at least one completed response violated a criterion. `BLOCKED` means execution stopped without a complete verdict; the report shows how many cases ran. Exit codes are 0, 1 and 2 respectively. There is no fallback to a reference output when a target cannot respond.
 
 Blocked codes include `TARGET_UNAVAILABLE`, `TARGET_TIMEOUT`, `TARGET_EXITED`, `TARGET_IO_ERROR`, `INVALID_JSON`, `BAD_ENVELOPE`, `IDENTITY_MISMATCH`, `IDENTITY_CHANGED`, `HTTP_STATUS`, `INPUT_TOO_LARGE` and `OUTPUT_TOO_LARGE`. Raw standard error, HTTP error bodies and exception strings are excluded. The report is a bounded probe, not durable campaign evidence or qualification of a production system.
 

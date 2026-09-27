@@ -47,3 +47,7 @@ The JSON campaign was run locally against the bundled executable in two invocati
 ## Phase 4 validation
 
 The handoff/freeze/evaluation/publication path passed a local toy-target end-to-end test. The disposable Docker containment probe confirmed that the reviewer could read the contract and write its own workspace while synthetic target source, private results and Docker socket were absent; networking was disabled and the container root filesystem was read-only. The expanded suite passed 36 tests. These checks cover the local process recipe and byte-level freeze bindings, not actual cognitive independence or externally hosted agents.
+
+## Metamorphic profile preview validation
+
+The graph path profile passed three independently hand-worked bases through both local algorithms and detected all six registered mutants through their named exact or relational checks. A bundled toy executable passed twelve synthetic requests; a four-request custom campaign reported `INCOMPLETE` with relations pending, then `PASSED` after resume with relations evaluated. A deliberately order-sensitive target produced a relational failure despite zero per-case failures. The expanded suite passed 44 tests on Python 3.11, including refusal of malformed reviewer-authored relations before dispatch. **No live engine or production target has been tested with this profile.** Stateful sequences and statistical properties remain planned, not validated.

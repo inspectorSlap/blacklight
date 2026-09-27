@@ -50,3 +50,7 @@ A future profile supplies scenario generation, anchors, oracle/reference behavio
 ## Phase 4 role boundary
 
 `scripts/role_workflow.py` prepares a contract-only handoff, freezes reviewer expectations and lineage disclosure, binds that freeze to a Phase 3 campaign, and publishes a report-only result bundle. `scripts/run_reviewer.py` starts a Docker process with only the handoff and reviewer workspace mounted, no network, no host credentials, a read-only root filesystem and reduced privileges. `scripts/check_isolation.py` validates that boundary with synthetic private files. The templates under `templates/` describe the two roles. See [AGENT-WORKFLOW.md](AGENT-WORKFLOW.md).
+
+## Metamorphic profile preview
+
+`harness/profiles/graph_path/` adds a directed-graph contract, a repeated-relaxation oracle, a separate Dijkstra reference and six mutants. Optional `check_target_relations` lets the probe and campaign evaluate pairs of completed outputs. Derived requests check schema individually; relation findings are computed from the full set of frozen response evidence and remain pending during partial runs. The bundled graph executable is synthetic; this type has not been tested on a live engine.

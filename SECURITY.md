@@ -17,3 +17,7 @@ Campaign workspaces retain input and output JSON in the local SQLite evidence st
 ## Phase 4 reviewer boundary
 
 The Docker reviewer runner mounts only a reviewed handoff and reviewer workspace, disables networking and does not pass host credentials. The operator and Docker daemon remain trusted. Source separation depends on running the actual reviewer process inside that container; prompt instructions or separate chat windows alone do not enforce access controls. The lineage disclosure is self-reported.
+
+## Test-type validation scope
+
+The graph metamorphic profile has only synthetic fixtures and a bundled toy-target run. It has not been tested on a live engine. Stateful and statistical test types remain design work; do not treat the roadmap as an execution or qualification claim.

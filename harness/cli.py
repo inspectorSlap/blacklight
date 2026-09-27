@@ -42,7 +42,7 @@ def main(argv=None):
     marker = workspace / "profile.json"
     if args.command == "status":
         recorded = json.loads(marker.read_text())["profile"] if marker.is_file() else None
-        print(json.dumps({"stage": "PHASE3_BOUNDED_CAMPAIGN", "available_profiles": list(PROFILES),
+        print(json.dumps({"stage": "METAMORPHIC_PROFILE_PREVIEW", "available_profiles": list(PROFILES),
                           "workspace_profile": recorded, "target_adapters": ["local-process", "loopback-http"],
                           "remote_network_enabled": False,
                           "report_exists": (workspace / "results/profile-evaluation.json").is_file(),

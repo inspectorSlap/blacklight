@@ -1,6 +1,6 @@
 # Bounded campaigns (Phase 3)
 
-A campaign runs 1–32 cases from `json-transform-v1` against a local executable or literal-loopback HTTP service. It uses the same target protocol and transport limits as [`probe`](TARGET-ADAPTERS.md). The ordinal profile remains an offline demonstration. A campaign's result is a **technical comparison of the selected cases**, not a research qualification or a general claim about the target.
+A campaign runs 1–32 selected requests from `json-transform-v1` or the synthetic `graph-path-v1` profile against a local executable or literal-loopback HTTP service. The graph profile has not been tested on a live engine. It uses the same target protocol and transport limits as [`probe`](TARGET-ADAPTERS.md). The ordinal profile remains an offline demonstration. A campaign's result is a **technical comparison of the selected cases**, not a research qualification or a general claim about the target.
 
 ## Run and resume
 
@@ -41,7 +41,7 @@ A campaign workspace contains:
 | `evidence.sqlite3` | Durable dispatch intents, canonical request/response JSON bytes, SHA-256 digests, checks and a chained digest index |
 | `report.json` | Rebuildable summary of completed evidence and current state |
 
-The SQLite store commits a request intent before the target call and commits its result after receiving and checking the response. A restart verifies the database, freeze digests, full evidence prefix, checks, target identity and profile source fingerprint before any further call. Completed cases are not repeated. A completed row remains available even if a crash prevents the report file from being updated; resume rebuilds the report. A single-process lock prevents simultaneous dispatchers in one workspace.
+The SQLite store commits a request intent before the target call and commits its result after receiving and checking the response. A restart verifies the database, freeze digests, full evidence prefix, checks, target identity and profile source fingerprint before any further call. Completed cases are not repeated. A completed row remains available even if a crash prevents the report file from being updated; resume rebuilds the report. For relational profiles, cross-run findings are recomputed from the completed response bytes only when every selected request exists. A single-process lock prevents simultaneous dispatchers in one workspace.
 
 A crash, timeout or lost response after dispatch leaves an intent without a completed result. It is `INDETERMINATE`: the target might have acted, so Blacklight will not retry it automatically. The operator must investigate or start a new campaign with full awareness of possible side effects. This design does **not** promise exactly-once effects at the target. Tampering with the database and recomputing every digest is outside this accidental-corruption check; the evidence is not a signed audit log.
 
@@ -57,6 +57,6 @@ The process identity pins the executable file digest, but not imported code, int
 | `INDETERMINATE` | A dispatched request has no durable completed result |
 | `ABORTED` | Operator permanently closed this campaign |
 
-Exit codes are 0 for `PASSED`, 1 for `FAILED`, and 2 for the other states or a refusal. `research_verdict` remains null in every report. The report omits raw inputs and responses but the **workspace stores them** for verification. Treat workspaces as potentially sensitive, protect them with filesystem permissions, and inspect them before sharing. Git ignores the conventional `workspace/` path; another path may need its own ignore rule.
+Exit codes are 0 for `PASSED`, 1 for `FAILED`, and 2 for the other states or a refusal. `research_verdict` remains null in every report. Relational profiles additionally report `relations_status`, `failed_relations` and named `relation_failures`. An incomplete set reports `PENDING`; a relational mismatch makes the completed technical verdict `FAILED`. The report omits raw inputs and responses but the **workspace stores them** for verification. Treat workspaces as potentially sensitive, protect them with filesystem permissions, and inspect them before sharing. Git ignores the conventional `workspace/` path; another path may need its own ignore rule.
 
 A local two-role workflow and Docker reviewer boundary are now available; see [the workflow guide](AGENT-WORKFLOW.md). An ordinal external target adapter remains planned work.

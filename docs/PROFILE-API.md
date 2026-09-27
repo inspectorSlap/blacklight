@@ -6,7 +6,7 @@ Phase 1 provides a small Python interface for local profiles. A profile owns its
 
 `harness/profiles/base.py` defines `Profile`: `profile_id`, `description`, `build(workspace)` and `evaluate(workspace)`. `build` writes synthetic fixtures and returns a short inventory. `evaluate` returns `Evaluation(technical_checks_passed, gate, profile_gate_passed, details)`. It may write additional profile-owned evidence beneath `results/`. Keep output JSON-serializable.
 
-The built-in registry in `harness/profiles/__init__.py` currently names `ordinal-v1` and `json-transform-v1`. The first wraps the extracted statistical harness. The second is deliberately different: records with integer values become selected IDs, a total and a count. Both use the same workspace and report flow in `harness/cli.py`.
+The built-in registry now names `ordinal-v1`, `json-transform-v1` and `graph-path-v1`. The first wraps the extracted statistical harness; the second checks an exact JSON transformation; the third checks exact path distances and cross-run relations. All use the same workspace and report flow in `harness/cli.py`.
 
 ## Authoring a profile
 
@@ -24,8 +24,8 @@ Each profile decides what its criteria mean. `json-transform-v1` checks selectio
 
 ## Target-capable profiles
 
-`TargetProfile` adds `target_cases(custom_inputs)` and `check_target_output(observed, expected)`. The first returns 1–32 cases with `id`, `input` and independently derived `expected` fields. The second returns named failed criteria. The shared `probe` runner calls the selected process or loopback adapter and never substitutes a reference result after a transport failure. The JSON profile demonstrates this extension. The ordinal profile does not yet implement it.
+`TargetProfile` adds `target_cases(custom_inputs)` and `check_target_output(observed, expected)`. The first returns 1–32 cases with `id`, `input` and independently derived `expected` fields. The second returns named failed criteria. The shared `probe` runner calls the selected process or loopback adapter and never substitutes a reference result after a transport failure. The JSON and graph profiles demonstrate this extension. The ordinal profile does not yet implement it. `RelationalTargetProfile` additionally defines `check_target_relations(cases, observations)`. The probe and campaign call it only when all selected responses exist, and report `PENDING` for an incomplete set. A relation failure contributes to the technical verdict even when every individual response passes its shape check. `graph-path-v1` shows exact base expectations beside relation-only derived expectations. Its optional `validate_target_cases` preflight verifies oracle agreement, complete relation groups and the declared input transformations before any target request; see [its profile guide](GRAPH-PATH-PROFILE.md).
 
 ## Remaining boundary
 
-A bounded durable campaign and Docker reviewer process boundary exist for the JSON profile. Broader adapters, ordinal target support and qualification policy remain future work. A new profile cannot claim that passing a bounded probe validates a production system.
+A bounded durable campaign supports the JSON and graph profiles, and the Docker reviewer boundary can freeze either profile’s cases. Broader adapters, ordinal target support and qualification policy remain future work. The graph profile has only synthetic and bundled-toy validation, not a live-engine test. A new profile cannot claim that passing a bounded probe validates a production system.

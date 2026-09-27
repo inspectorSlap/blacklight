@@ -1,0 +1,12 @@
+[
+  {
+    "vertices": ["s", "a", "t"],
+    "edges": [
+      {"from": "s", "to": "a", "weight": 1},
+      {"from": "a", "to": "t", "weight": 4},
+      {"from": "s", "to": "t", "weight": 9}
+    ],
+    "source": "s",
+    "target": "t"
+  }
+]

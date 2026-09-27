@@ -12,7 +12,7 @@ python3 -m harness.cli demo --profile json-transform-v1 --workspace workspace/js
 
 The destination must not already exist. A workspace contains generated scenario fixtures under `fixtures/`, a failure registry and machine-readable qualification output under `results/`, and a coverage matrix under `reports/`. All generated scenarios are synthetic. No original research results are copied.
 
-Both demos use the same `profile.json` workspace marker and `results/profile-evaluation.json` report. The ordinal profile also writes its detailed legacy report. Its technical pass returns exit 0, while its research gate remains unqualified because registry approval is pending. The JSON profile reports only local technical checks. A test failure returns 1. No network transport is constructed.
+All three demos use the same `profile.json` workspace marker and `results/profile-evaluation.json` report. The ordinal profile also writes its detailed legacy report. Its technical pass returns exit 0, while its research gate remains unqualified because registry approval is pending. The JSON and graph profiles report local technical checks only. A test failure returns 1. No network transport is constructed.
 
 ## Run the steps separately
 
@@ -48,7 +48,7 @@ python3 scripts/audit_export.py
 
 Generated workspaces are ignored by the proposed Git configuration. Inspect candidate files before creating a public repository. No automatic test can certify absence of all sensitive content; the extraction record describes both the automated scan and the material manually excluded.
 
-For the other profile, use `--profile json-transform-v1` with `build` and `selfqual`. A workspace refuses a mismatched profile. See [the profile extension guide](PROFILE-API.md).
+For another profile, use `--profile json-transform-v1` or `--profile graph-path-v1` with `build` and `selfqual`. A workspace refuses a mismatched profile. See [the profile extension guide](PROFILE-API.md).
 
 ## Probe your own target (Phase 2)
 
@@ -61,3 +61,14 @@ See [bounded campaigns](CAMPAIGNS.md) for a complete start/resume example, costs
 ## Run the two-role workflow (Phase 4)
 
 See [the agent workflow guide](AGENT-WORKFLOW.md) for contract preparation, reviewer containment, expectation freezing, campaign evaluation and report-only publication. The Docker containment check is `python3 scripts/check_isolation.py` after pulling its documented public image. It uses disposable synthetic files.
+
+## Try a metamorphic test type (synthetic preview)
+
+```sh
+python3 -m harness.cli demo --profile graph-path-v1 --workspace workspace/graph-demo
+python3 -m harness.cli probe --profile graph-path-v1 \
+  --program examples/graph_path_process.py --target-id toy-graph-v1 \
+  --workspace workspace/graph-probe
+```
+
+The graph profile checks exact base distances and three relations between each base and transformed request. Its bundled process is a toy target; **no live engine has been tested**. See [the graph profile](GRAPH-PATH-PROFILE.md) and [test-type roadmap](TEST-TYPES-ROADMAP.md).
