@@ -1,5 +1,5 @@
 {
-  "description": "Blacklight Phase 3 preview source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
+  "description": "Blacklight Phase 4 preview source and documentation; excludes this manifest, Git internals and generated workspaces. Original source paths are omitted.",
   "files": [
     {
       "path": ".gitattributes",
@@ -7,7 +7,7 @@
     },
     {
       "path": ".github/workflows/checks.yml",
-      "sha256": "ea986e5d326ec55a12d09f7e745af10fbeaf7461ad8375a5a8accfd77c92d098"
+      "sha256": "c7a0f9b109b32e4581fc9f8843bcc8300441d6a1e202d82fa8f37fdd3f14b8a5"
     },
     {
       "path": ".gitignore",
@@ -15,7 +15,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "e26f29e72cdeaf7c1c814b0f75a627417b4eac3eba3c1ce2161a3f7d1a5d0f89"
+      "sha256": "c65da0e481cb960b86999a83ac73973680286910424ebc3385a4ce104a531719"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -31,19 +31,23 @@
     },
     {
       "path": "README.md",
-      "sha256": "5beeaa3bcc2dee064557155717e998962974498eaabe75500fa728d462122098"
+      "sha256": "b4305562433444fd57ddd27870dc76c5b1efe159999613132f7662526f538a4c"
     },
     {
       "path": "SECURITY.md",
-      "sha256": "9a4b3fc7da4bac33264060da30584fa23ea27ca5bf53fe1ed5eede9e6ec5d901"
+      "sha256": "7bc847da8aa6639ffdc57a0450bb79e219eaea660c847c22e5506f5a2914f479"
     },
     {
       "path": "agents/IMPLEMENTER.md",
-      "sha256": "df0af41b39e5d23934fe64029dcba0dc37177ea2ea324928db742d2a24a94367"
+      "sha256": "3fb98b3c67647b9d301c0c806413be8d9065081d3d5b273d988e3be1cecdce21"
     },
     {
       "path": "agents/REVIEWER.md",
-      "sha256": "f02da13b6375f37eba6cad1790554fd6f8f08838daedc74278ae96b3bc809507"
+      "sha256": "61150c17e65975acbf806bee5ad9dea551bfe1e173a2b6946613a532dd2ec74e"
+    },
+    {
+      "path": "docs/AGENT-WORKFLOW.md",
+      "sha256": "130ebe181b748072c6e511de82de1e479c95fde401fe414e3557553f10a6771d"
     },
     {
       "path": "docs/ANCHORS.md",
@@ -51,11 +55,11 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "550005216128f87498d9bc9a45d404cb9769a834807377efee8e4a216833aaa2"
+      "sha256": "7ea7269924c8e7d9121120cd54d588b449f2737fb5bcee1766a1a2be35822ec8"
     },
     {
       "path": "docs/CAMPAIGNS.md",
-      "sha256": "1ad65248fd3d31070ba32d13f006bc386a9b5e63f83c8f72bb6dee37fed9fdb2"
+      "sha256": "7c015a47d6c0d71eb890f217171b3f948cd3f2a5e669f1df38a77fe4fd0ec3ec"
     },
     {
       "path": "docs/EXTRACTION.md",
@@ -63,11 +67,11 @@
     },
     {
       "path": "docs/GENERALIZATION-PLAN.md",
-      "sha256": "f90f709d1fdc48011827c4a3ae424bb8d26f265bd46b0941f5ad4728a5603260"
+      "sha256": "6962820afe852c9a496a6b9442bcdcc88bf327c51ed29bd074e4412cdac9a8ac"
     },
     {
       "path": "docs/IMPLEMENTATION.md",
-      "sha256": "e0ccdf0c43219f5e9683142b93b0fb1a89e5b619dde4df14655cd6acb0f4a214"
+      "sha256": "607cfdd4648ef5368f1b849f3b8a520ec415bce7346dbbad722c9183cad45c04"
     },
     {
       "path": "docs/JSON-TRANSFORM-PROFILE.md",
@@ -75,11 +79,11 @@
     },
     {
       "path": "docs/METHODOLOGY.md",
-      "sha256": "9c8bcdbb226908fb004fa42ddf5170266452406142539f0bf43ea71a54ad919f"
+      "sha256": "203324b275f2a358543899855f722950c72921c9a1affcf090944bdd2db5f2ab"
     },
     {
       "path": "docs/PROFILE-API.md",
-      "sha256": "489a31a4f2d786f0c9dea5ad68479284d752009c404d54886074b8ad764b7d82"
+      "sha256": "98af8e07437bbc27b12eb6ed19ebbcb5d7698d22be74c770047bd0faef63ddc4"
     },
     {
       "path": "docs/PROFILE.md",
@@ -95,7 +99,7 @@
     },
     {
       "path": "docs/VALIDATION.md",
-      "sha256": "d3fc1558f8fc2daf813b6c16c6093863720ae278be07902e46ad5db3f9ec452d"
+      "sha256": "38863a352d17a480a478af8fec19f9915ff34f0f8af21638a54988a4b08e21a0"
     },
     {
       "path": "docs/design-notes/CAMPAIGN-RUNNER-v1.0.md",
@@ -167,7 +171,7 @@
     },
     {
       "path": "harness/campaign.py",
-      "sha256": "27c99838612be2a470dd9b64d7bb0c8f33531a4d633d3bd0a59441b8222df01c"
+      "sha256": "e8ad3046eefaeea6c0b68a3f74e5904f1039237883fb35a3efa2d0169d1ac8e5"
     },
     {
       "path": "harness/checks/__init__.py",
@@ -534,6 +538,38 @@
       "sha256": "6d75664aecf1360fee4837f6a01741969b0c74f0b4de1822a1be23e4e9b6e9b3"
     },
     {
+      "path": "scripts/check_isolation.py",
+      "sha256": "217438bf0a3b6b3cb24e28a4d8871110427756fa833d895414da0a4fb5d4dd1c"
+    },
+    {
+      "path": "scripts/role_workflow.py",
+      "sha256": "27963321c41c303ee6b80a4b657ae30afe55c3292a440476c8cb1484ddfe4354"
+    },
+    {
+      "path": "scripts/run_reviewer.py",
+      "sha256": "be989fe02dfe2b7aa80822f27cb9d398ba0e30bfd04bbe41313168292a6bb786"
+    },
+    {
+      "path": "templates/implementer/README.md",
+      "sha256": "9b21023669a1530edaf27abaca6b78c4ccc62492fb68334e614956517be74e71"
+    },
+    {
+      "path": "templates/implementer/contract.example.json",
+      "sha256": "ac20aa802d16efd492316d38ba84e508a10e1aaa21332a33e3f06759416e4418"
+    },
+    {
+      "path": "templates/reviewer/README.md",
+      "sha256": "0968d692e934fcfcf6d58a437bb3f490b101a31c03d3db2e8397e2d05bce61e7"
+    },
+    {
+      "path": "templates/reviewer/expectations.example.json",
+      "sha256": "50a603f3de00766b6ddd678b2538c37f2262cb93e4d42a00a30742dabda9ecee"
+    },
+    {
+      "path": "templates/reviewer/lineage.example.json",
+      "sha256": "f363b1151e55d4438f401e52cb9c5bf033faa4d72bf3f0cad7247ff16370b527"
+    },
+    {
       "path": "tests/test_campaign.py",
       "sha256": "0371a8d4251343ade8b9e2b65426f34ce66b0e52a18682de7851b3295f1512bf"
     },
@@ -544,6 +580,10 @@
     {
       "path": "tests/test_profiles.py",
       "sha256": "a3140e47c3f16fd1fb8ec23bba698e70ba259e630f012050deaaa86dd2f2931b"
+    },
+    {
+      "path": "tests/test_role_workflow.py",
+      "sha256": "da75a33186b3616b1c77cf2ff92827a5dfb47bf781c99fdef220fdbcf677e39b"
     },
     {
       "path": "tests/test_target_probe.py",

@@ -57,3 +57,7 @@ For the JSON transformation profile, use `probe` with either `--program` or `--u
 ## Run a bounded campaign (Phase 3)
 
 See [bounded campaigns](CAMPAIGNS.md) for a complete start/resume example, costs and request limits, evidence files, result meanings and restart behavior. A campaign uses a fresh workspace, a target-capable profile, an explicit request budget, an estimated cost ceiling and `--execute` on each dispatching invocation. The ordinal target path remains unsupported.
+
+## Run the two-role workflow (Phase 4)
+
+See [the agent workflow guide](AGENT-WORKFLOW.md) for contract preparation, reviewer containment, expectation freezing, campaign evaluation and report-only publication. The Docker containment check is `python3 scripts/check_isolation.py` after pulling its documented public image. It uses disposable synthetic files.

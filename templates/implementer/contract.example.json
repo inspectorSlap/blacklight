@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "profile": "json-transform-v1",
+  "target_id": "toy-json-v1",
+  "requirements": [
+    "Select records with integer value at or above minimum, preserving order and duplicate IDs.",
+    "Return selected IDs, the sum of selected values, and selected count."
+  ],
+  "request_schema": {"profile": "json-transform-v1", "input": {"records": "array of {id: string, value: integer}", "minimum": "integer"}},
+  "response_schema": {"target_id": "string", "output": {"ids": "array of strings", "total": "integer", "count": "integer"}}
+}

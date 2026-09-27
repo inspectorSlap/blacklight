@@ -33,7 +33,7 @@ These assets have study-era coupling to contract files, version IDs and earlier 
 
 ## Planned boundaries
 
-A future profile supplies scenario generation, anchors, oracle/reference behavior, mutations, schema normalization, decision checks and acceptance rules. The Phase 2 adapters supply bounded execution and declared identity for the JSON profile. The Phase 3 JSON campaign supplies bounded dispatch, evidence retention, resumption and estimated-cost accounting. The ordinal campaign remains in the design archive. Information isolation remains an explicit external boundary. See [the plan](GENERALIZATION-PLAN.md) for deliverables and acceptance criteria.
+A future profile supplies scenario generation, anchors, oracle/reference behavior, mutations, schema normalization, decision checks and acceptance rules. The Phase 2 adapters supply bounded execution and declared identity for the JSON profile. The Phase 3 JSON campaign supplies bounded dispatch, evidence retention, resumption and estimated-cost accounting. The ordinal campaign remains in the design archive. The Phase 4 Docker runner adds a local reviewer process boundary; any work outside that process still needs separate controls. See [the plan](GENERALIZATION-PLAN.md) for deliverables and acceptance criteria.
 
 ## Phase 1 profile boundary
 
@@ -46,3 +46,7 @@ A future profile supplies scenario generation, anchors, oracle/reference behavio
 ## Phase 3 evidence boundary
 
 `harness/campaign.py` freezes a per-run specification and operator budget separately, records a durable dispatch intent before each target call, then commits canonical response evidence with SHA-256 digests and a chain index. Resume verifies the full prefix and identities. `report.json` is rebuilt from the store, while explicit `--execute` is required for each invocation. Research authority is not inferred from a technical pass. See [CAMPAIGNS.md](CAMPAIGNS.md).
+
+## Phase 4 role boundary
+
+`scripts/role_workflow.py` prepares a contract-only handoff, freezes reviewer expectations and lineage disclosure, binds that freeze to a Phase 3 campaign, and publishes a report-only result bundle. `scripts/run_reviewer.py` starts a Docker process with only the handoff and reviewer workspace mounted, no network, no host credentials, a read-only root filesystem and reduced privileges. `scripts/check_isolation.py` validates that boundary with synthetic private files. The templates under `templates/` describe the two roles. See [AGENT-WORKFLOW.md](AGENT-WORKFLOW.md).

@@ -35,3 +35,9 @@
 - Added a frozen per-run specification and separate operator budget for JSON target campaigns.
 - Added durable intent/result evidence, digest verification, resume and explicit uncertainty after interrupted requests.
 - Added local fault tests and a campaign guide.
+
+## Phase 4 two-role workflow
+
+- Added implementer/reviewer templates, an allowlisted contract handoff and expectation/lineage freeze.
+- Bound workflow campaigns to the freeze and added a report-only result bundle.
+- Added a restricted Docker reviewer runner, a live containment probe and CI coverage.

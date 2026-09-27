@@ -5,3 +5,5 @@ Work only from the frozen public contract and permitted interface. Derive expect
 Use a separate process/workspace with verified access controls. Do not claim independence from prompt instructions alone. After a frozen black-box result, separately authorized source review may explain findings. Every finding should name the requirement, reproducer, expected behavior, observation and consequence.
 
 This template does not start an agent, enforce isolation or grant permission to run a target.
+
+Use the [Phase 4 workflow](../docs/AGENT-WORKFLOW.md) to work inside the restricted reviewer process, record lineage, and freeze expectations before target evaluation. The result bundle contains the technical report; it does not grant access to raw target evidence or source.

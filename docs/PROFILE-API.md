@@ -28,4 +28,4 @@ Each profile decides what its criteria mean. `json-transform-v1` checks selectio
 
 ## Remaining boundary
 
-Durable campaigns, broader adapters, agent isolation and qualification policy are later phases. A new profile cannot claim that passing a bounded probe validates a production system.
+A bounded durable campaign and Docker reviewer process boundary exist for the JSON profile. Broader adapters, ordinal target support and qualification policy remain future work. A new profile cannot claim that passing a bounded probe validates a production system.

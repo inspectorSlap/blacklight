@@ -1,6 +1,6 @@
 # Security and scope
 
-This is a local prototype, not a hardened service. Campaign execution and archived operational launchers are disabled. The target probe can run a selected executable or call a loopback service. A token or a prompt does not isolate a process from readable files.
+This is a local prototype, not a hardened service. The bounded JSON campaign is active; the full ordinal campaign and archived operational launchers are disabled. The target probe can run a selected executable or call a loopback service. A token or a prompt does not isolate a process from readable files.
 
 Generated artifacts may contain complete user-supplied test inputs and outputs. Keep real workspaces private by default. Do not log credentials, import private research corpora, or publish session traces automatically.
 
@@ -13,3 +13,7 @@ The process adapter executes the program selected by the operator. It limits run
 ## Phase 3 campaign evidence
 
 Campaign workspaces retain input and output JSON in the local SQLite evidence store. Protect those files and inspect them before sharing. Dispatch intent is committed before target execution; after a crash or transport uncertainty, the campaign stops as `INDETERMINATE` rather than automatically retrying a possible side effect. Evidence digests detect accidental corruption, not an attacker able to rewrite the whole workspace and recompute hashes. Process targets are not sandboxed.
+
+## Phase 4 reviewer boundary
+
+The Docker reviewer runner mounts only a reviewed handoff and reviewer workspace, disables networking and does not pass host credentials. The operator and Docker daemon remain trusted. Source separation depends on running the actual reviewer process inside that container; prompt instructions or separate chat windows alone do not enforce access controls. The lineage disclosure is self-reported.

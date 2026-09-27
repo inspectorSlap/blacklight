@@ -59,4 +59,4 @@ The process identity pins the executable file digest, but not imported code, int
 
 Exit codes are 0 for `PASSED`, 1 for `FAILED`, and 2 for the other states or a refusal. `research_verdict` remains null in every report. The report omits raw inputs and responses but the **workspace stores them** for verification. Treat workspaces as potentially sensitive, protect them with filesystem permissions, and inspect them before sharing. Git ignores the conventional `workspace/` path; another path may need its own ignore rule.
 
-The two-agent isolation workflow and an ordinal external target adapter remain planned work. See [the generalization plan](GENERALIZATION-PLAN.md).
+A local two-role workflow and Docker reviewer boundary are now available; see [the workflow guide](AGENT-WORKFLOW.md). An ordinal external target adapter remains planned work.

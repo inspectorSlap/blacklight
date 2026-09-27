@@ -30,7 +30,7 @@ Regression tests cover pending approval, reference import separation, exact anch
 
 ## Limits
 
-These are bounded synthetic checks of the bundled ordinal profile. They do not establish universal defect detection, calibrated error rates across arbitrary inputs, statistical validity of every retained procedure, operational durability of the disabled campaign code, or enforced isolation between agents. The export scan is heuristic and cannot certify absence of every sensitive detail. Selected source files were checked against a private hash manifest; that manifest is stored outside this package.
+These are bounded synthetic checks of the bundled ordinal profile. They do not establish universal defect detection, calibrated error rates across arbitrary inputs, statistical validity of every retained procedure, operational durability of the disabled ordinal campaign code, or cognitive independence between agents. The export scan is heuristic and cannot certify absence of every sensitive detail. Selected source files were checked against a private hash manifest; that manifest is stored outside this package.
 
 ## Phase 1 validation
 
@@ -43,3 +43,7 @@ The JSON profile passed all five bundled cases and two custom input cases agains
 ## Phase 3 validation
 
 The JSON campaign was run locally against the bundled executable in two invocations: two cases first, then the remaining three. It reported `INCOMPLETE` and then `PASSED` with five completed cases. The expanded suite passed 31 tests, including simulated interruption after dispatch, interruption after committed evidence but before report writing, target/profile identity changes, damaged freeze and response bytes, pre-dispatch budget refusal, blocked transport, abort and failed checks. This validates the bounded local prototype, not exactly-once target effects or a paid campaign.
+
+## Phase 4 validation
+
+The handoff/freeze/evaluation/publication path passed a local toy-target end-to-end test. The disposable Docker containment probe confirmed that the reviewer could read the contract and write its own workspace while synthetic target source, private results and Docker socket were absent; networking was disabled and the container root filesystem was read-only. The expanded suite passed 36 tests. These checks cover the local process recipe and byte-level freeze bindings, not actual cognitive independence or externally hosted agents.

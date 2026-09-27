@@ -1,0 +1,11 @@
+{
+  "profile": "json-transform-v1",
+  "cases": [
+    {
+      "id": "inclusive-boundary",
+      "input": {"records": [{"id": "a", "value": 2}, {"id": "b", "value": 1}], "minimum": 2},
+      "expected": {"ids": ["a"], "total": 2, "count": 1}
+    }
+  ],
+  "limitations": ["This small example checks the inclusive threshold but does not establish broad coverage."]
+}

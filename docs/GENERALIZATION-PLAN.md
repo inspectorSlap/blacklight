@@ -30,11 +30,11 @@ Extract the retained evidence store, byte/digest indexes, continuation logic and
 
 **Acceptance:** crash/restart does not silently lose or duplicate completed evidence; corrupt archives and changed target/profile identities stop resumption; cost and request bounds are enforced before work; reports distinguish aborted, incomplete, indeterminate and passed runs. Local fault tests cover these paths. The active prototype is limited to the JSON profile and two local transports; ordinal campaign support and a general supervisor remain future work.
 
-## Phase 4 — independent agent workflow
+## Phase 4 — independent agent workflow (local Docker prototype implemented)
 
 Provide two workspace templates, narrow handoff bundles and a tested container/process isolation recipe. Treat the implementer and harness reviewer as separate roles; do not require a particular model vendor. Freeze the independent expectations before releasing target source for later review.
 
-**Acceptance:** containment tests demonstrate that the harness role cannot read target code or private results and can access only permitted interfaces. Disclose shared model lineage. Never equate different chat windows or prompt instructions with enforced isolation.
+**Acceptance:** an actual Docker containment test confirms that a reviewer process reads only the handoff project input, writes its own workspace, and cannot see synthetic target source or private results. The handoff requires lineage disclosure and freezes expectations before workflow evaluation. This is a local process boundary, not proof of independent reasoning or a general remote-agent sandbox. Never equate different chat windows or prompt instructions with enforced isolation.
 
 ## Contributions we can welcome
 
@@ -50,4 +50,4 @@ A useful profile contribution must include a minimal synthetic example, supporte
 
 Tag the first release once a fresh clone can run the advertised demo, the supported profile/adapters are accurately documented, the MIT license is present, export review is complete and CI passes. A useful early release may support only one substantive profile while honestly exposing the intended extension design; it must not advertise planned adapters or universal criteria as implemented.
 
-Use completed acceptance gates to track progress. No calendar estimate is required to decide the next step. The `ordinal-v1` and `json-transform-v1` modules now exercise the shared local interface. Remaining release work includes profile discovery beyond the built-in registry, independent review of the new API, broader tests, public export review. Phase 2 now includes both planned local transports. A tagged release remains gated on the owner's independent PII review and review of the complete Git history.
+Use completed acceptance gates to track progress. No calendar estimate is required to decide the next step. The `ordinal-v1` and `json-transform-v1` modules now exercise the shared local interface. Remaining release work includes profile discovery beyond the built-in registry, independent review of the API, broader domain tests and public export review. The local transports, bounded JSON campaign and Docker reviewer recipe are implemented. A tagged release remains gated on the owner's independent PII review and review of the complete Git history.

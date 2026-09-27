@@ -4,7 +4,7 @@
 
 Blacklight is an extracted Python prototype for testing an implementation against a separately specified contract. It combines an exact oracle, a separate reference implementation, known-broken targets, synthetic scenarios, and explicit review gates.
 
-**Current status: Phase 3 preview.** Two profiles run through a common interface. The JSON profile can probe a user-selected local executable or loopback HTTP service and run a bounded, restart-safe local campaign. The ordinal profile remains an offline demonstration. Enforced agent isolation remains later work.
+**Current status: Phase 4 preview.** Two profiles run through a common interface. The JSON profile can probe a local target and run a bounded, restart-safe campaign. A two-role handoff and tested Docker reviewer boundary are available; the ordinal profile remains an offline demonstration.
 
 ## Try Blacklight locally
 
@@ -46,7 +46,7 @@ This runs the five bundled examples against a toy executable. Use `--cases examp
 | Different schemas and criteria | Supported by writing a new profile module; no plug-in loader yet |
 | Local process and loopback HTTP target probes | Runnable for `json-transform-v1`; bounded and explicitly incomplete on transport failure |
 | JSON transformation example | Runnable as `json-transform-v1` with independent examples and five mutants |
-| Two-agent discovery/review process | Documented methodology; not automatically enforced |
+| Two-role discovery/review process | Handoff, expectation freeze, report-only release and tested Docker process boundary |
 
 The oracle and reference have different implementations but share historical authoring lineage. This export does not claim independent human authorship, a new blinded assessment, or independent agent agreement. See [methodology](docs/METHODOLOGY.md).
 
@@ -56,6 +56,7 @@ The oracle and reference have different implementations but share historical aut
 - [Profile API](docs/PROFILE-API.md): how to write and register another profile.
 - [Target adapters](docs/TARGET-ADAPTERS.md): process/HTTP protocol and limits.
 - [Bounded campaigns](docs/CAMPAIGNS.md): freeze, budgets, evidence and restart behavior.
+- [Two-role workflow](docs/AGENT-WORKFLOW.md): independent expectations, narrow handoff and Docker containment.
 - [Ordinal profile](docs/PROFILE.md): supported dimensions and fixed assumptions.
 - [JSON example](docs/JSON-TRANSFORM-PROFILE.md): second profile and its exact contract.
 - [Architecture](docs/ARCHITECTURE.md): active code and preserved design assets.

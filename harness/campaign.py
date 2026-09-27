@@ -198,7 +198,8 @@ def _publish(workspace, report):
     return report
 
 
-def start(workspace, profile, adapter, cases, max_requests, max_cost, unit_cost, execute=False, step_limit=None):
+def start(workspace, profile, adapter, cases, max_requests, max_cost, unit_cost, execute=False, step_limit=None,
+          methodology_freeze_sha256=None):
     """Freeze a new campaign, then optionally dispatch a bounded batch."""
     workspace = Path(workspace)
     if workspace.exists():
@@ -222,8 +223,12 @@ def start(workspace, profile, adapter, cases, max_requests, max_cost, unit_cost,
         raw = _bytes({"profile": profile.profile_id, "input": case["input"]})
         if len(raw) > MAX_INPUT_BYTES:
             raise CampaignError("case input exceeds transport limit")
+    if methodology_freeze_sha256 is not None and (type(methodology_freeze_sha256) is not str or len(methodology_freeze_sha256) != 64
+                                                   or any(c not in "0123456789abcdef" for c in methodology_freeze_sha256)):
+        raise CampaignError("methodology freeze digest is invalid")
     spec = {"run_id": str(uuid.uuid4()), "profile": profile.profile_id,
-            "profile_sha256": _profile_fingerprint(profile), "target": adapter.identity(), "cases": cases}
+            "profile_sha256": _profile_fingerprint(profile), "target": adapter.identity(), "cases": cases,
+            "methodology_freeze_sha256": methodology_freeze_sha256}
     policy = {"max_requests": max_requests, "max_cost": str(ceiling), "unit_cost": str(unit)}
     spec_raw, policy_raw = _bytes(spec), _bytes(policy)
     workspace.mkdir(parents=True)

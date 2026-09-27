@@ -1,0 +1,6 @@
+{
+  "implementer": "human or model/system label",
+  "reviewer": "human or model/system label",
+  "shared_lineage": "unknown",
+  "notes": "State known shared vendors, model families, prior exposure and reviewer independence limits."
+}

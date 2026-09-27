@@ -21,3 +21,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m unittest discover -s tests -q
       - run: python scripts/audit_export.py --root .
+
+  isolation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: docker pull debian:bookworm-slim
+      - run: python3 scripts/check_isolation.py
