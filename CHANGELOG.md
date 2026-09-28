@@ -1,6 +1,12 @@
 # Changelog
 
-## Unreleased — extraction prototype
+## v0.1.0-alpha.1 — first public preview
+
+- Includes three profiles, bounded local target campaigns, durable evidence, and the Docker reviewer boundary.
+- The graph profile has synthetic and bundled-toy validation only; no live engine was tested.
+- Stateful and statistical test types remain planned.
+
+## Initial extraction prototype
 
 - Isolated the independent harness code and selected engineering documentation.
 - Added an offline ordinal-profile demonstration with pending review authority.

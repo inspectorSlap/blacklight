@@ -2,7 +2,7 @@
 
 Review the full Git history, including disabled design assets under `incubator/` and historical notes under `docs/design-notes/`; inspecting only the latest tree is insufficient because older commits remain visible after publication.
 
-The Git history records sanitized extraction, the profile boundary, bounded target adapters, MIT/audit preparation, and the Blacklight release rename. It does not include the original private project's Git history. Generated workspaces, source study results, approval records and credentials are outside this repository.
+The Git history records sanitized extraction, profile boundaries, bounded target adapters and campaigns, a local reviewer isolation workflow, the synthetic graph profile, MIT/audit preparation, and the Blacklight rename. It does not include the original private project's Git history. Generated workspaces, source study results, approval records and credentials are outside this repository.
 
 A practical review sequence from the repository root:
 

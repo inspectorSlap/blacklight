@@ -15,7 +15,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "ecea982888de526f40763885a20595234cfd2810c53dbb1baa1634fcc93446cd"
+      "sha256": "da2e083c1cd609cc19a9ba639d2f2956d8635e00d3a9bd73e6e24033459d18eb"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -67,7 +67,7 @@
     },
     {
       "path": "docs/GENERALIZATION-PLAN.md",
-      "sha256": "00f3e49339c0c0968bf409e0c16ccad53c443f8f80195f83e4121be2d596939a"
+      "sha256": "f9c2bdd9844e2ddb453738fd42c3df0386969b1b62ea580b9eb20c47fe3886cd"
     },
     {
       "path": "docs/GRAPH-PATH-PROFILE.md",
@@ -95,7 +95,7 @@
     },
     {
       "path": "docs/PUBLIC-REVIEW.md",
-      "sha256": "57d6b32035de04b77dca0cca41b5405cdaaf7489bdc44c73c1389ed5f4002fc0"
+      "sha256": "354da454ce5229eb8e90f5f015a3e85ebf69f22cb79d38eaa8450fb1b780cd50"
     },
     {
       "path": "docs/TARGET-ADAPTERS.md",
